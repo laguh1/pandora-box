@@ -55,7 +55,7 @@
 
 .topic-modal__title {
   font-size: var(--font-size-large);
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -106,7 +106,7 @@
 .topic-modal__button {
   padding: var(--spacing-md);
   border-radius: var(--border-radius-md);
-  font-weight: 600;
+  font-weight: 400;
   font-size: var(--font-size-base);
   transition: all var(--transition-fast);
 }

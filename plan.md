@@ -381,3 +381,62 @@ npm run build
 - Tab organization improves workflow
 - Extension remains lightweight and fast
 - Intuitive UI requires no documentation
+
+---
+
+## Improvements & Updates
+
+### Session 1: UI Refinements (2025-12-12)
+
+#### Card Dimension Update
+**Status**: Completed
+**Change**: Updated card dimensions from 180px x 180px to 202px x 80px (horizontal orientation)
+- New card size: 202px width x 80px height
+- Gap maintained: 10px
+- Layout: Single column (one card per line)
+- Popup dimensions: 222px width x 500px height
+
+**Rationale**: Horizontal cards in single-column layout provide cleaner, more streamlined interface.
+
+#### Typography Update
+**Status**: Completed
+**Change**: Font family changed to Roboto, removed all bold fonts
+- Font family: Roboto (loaded from Google Fonts)
+- All font-weight changed from 400/500/600/700 to 400 (regular)
+- Cleaner, more modern appearance
+
+#### Development Testing Setup
+**Status**: Completed
+**Feature**: Enable browser-based testing before building extension
+- Use `npm run dev` to test in browser at localhost:5173
+- Preview popup UI without loading as extension
+- Faster iteration on design changes
+- Hot reload for instant feedback
+
+**Implementation**:
+- Vite dev server already configured
+- Test at http://localhost:5173
+- Chrome APIs will show warnings but UI will be fully functional
+- Build with `npm run build` when ready for extension testing
+
+#### Color Palette Update
+**Status**: Completed
+**Change**: Applied Color Hunt palette (#11224E, #F87B1B, #CBD99B, #EEEEEE)
+- Primary color: #11224E (Dark Navy Blue) - used for header and Movies topic
+- Secondary color: #F87B1B (Bright Orange) - used for Deutsch and Social Media topics
+- Tertiary color: #CBD99B (Soft Sage Green) - used for Crochet topic
+- Background: #EEEEEE (Light Grey)
+- Text color: Dark Navy (#11224E)
+- Border color: Sage Green (#CBD99B)
+
+**Source**: https://colorhunt.co/palette/11224ef87b1bcbd99beeeeee
+
+#### Pending Improvements
+- [ ] Dark mode support
+- [ ] Custom topic icons (not just colors)
+- [ ] Drag-and-drop URL reordering
+- [ ] Settings page for managing topics/URLs
+- [ ] Keyboard shortcuts
+- [ ] Search functionality within topics
+- [ ] Recent/favorite URLs tracking
+- [ ] Import/export configuration

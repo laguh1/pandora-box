@@ -117,6 +117,78 @@ Implementation will follow six phases:
 
 **Action**: Fixing icon loading error in Chrome extension manifest.
 
+### 2025-12-12 17:10 CET (approx)
+**Prompt**: "ok now let's improve and make changes. add in plan session for improvements and updates. First, change card dimensions to ~80px x 202px with 10px gap . enable a way for me to test it before uploading thee xtension."
+
+**Action**: Creating improvements plan section and implementing card dimension changes. Setting up development testing environment.
+
+### 2025-12-12 17:20 CET (approx)
+**Prompt**: "change to 202 x 80px (horizontal rectangle), only one box per line. no bold fonts, change font to roboto"
+
+**Action**: Updating card dimensions to horizontal layout (202px x 80px), changing to single-column layout, removing bold fonts, and switching to Roboto font family.
+
+### 2025-12-12 17:26 CET (approx)
+**Prompt**: "change colours use this pallette: https://colorhunt.co/palette/11224ef87b1bcbd99beeeeee"
+
+**Action**: Updating color palette to: #11224E (Dark Navy), #F87B1B (Orange), #CBD99B (Sage Green), #EEEEEE (Light Grey).
+
+### 2025-12-12 17:32 CET (approx)
+**Prompt**: "Changes: make all backgroung: Dark Navy including the header background. Make grey one of the box collours, never repeate a colour when nedeed use this palleet to selcet another colour for a new box: https://colorhunt.co/palette/f5ad189e1c60811844561530. Use Bodoni font for Pandora title. Use image openbox as logo on the left side of the title and for the extension icon."
+
+**Action**: Setting all backgrounds to Dark Navy, adding grey box color, using additional palette for unique colors, changing title font to Bodoni, and adding open box logo.
+
+### 2025-12-12 17:44 CET (approx)
+**Prompt**: "remove the number of links under the topic name. make the box a bit below 80px. make the corners square. add an option to add new groups and new links inside each topic. make a screw icon on the top right corener to open theses oprions"
+
+**Action**: Removing link count, reducing card height to 70px, making corners square, adding settings icon with functionality to add new groups and links.
+
+**Completed**:
+- Removed link count display from TopicCard component
+- Updated card height from 80px to 70px in variables.css
+- Set all border-radius values to 0px for square corners
+- Created screw.svg icon for settings button
+- Added settings button to header with hover rotation effect
+- Created SettingsModal component with three modes: main menu, add topic form, add link form
+- Implemented handleAddTopic function in App.jsx using colors from second palette (#9E1C60, #811844, #561530)
+- Implemented handleAddLink function to add URLs to existing topics
+- All changes live with hot reload at http://localhost:5173/
+
+### 2025-12-12 18:00 CET (approx)
+**Prompt**: "Move the screw icon more to the right outside the x letter and adapt the title to fit. Make the screw icon smaller and change its design"
+
+**Action**:
+- Moved screw icon to far right edge (4px from right)
+- Reduced icon size from 24px to 16px
+- Simplified screw design to flat-head style (circle with horizontal line)
+
+### 2025-12-12 18:05 CET (approx)
+**Prompt**: "Move the crew icon a bit higher, and make a rollover message saying 'add'"
+
+**Action**:
+- Centered screw icon vertically in header using CSS transform
+- Added tooltip with "add" text that appears on hover
+
+### 2025-12-12 18:10 CET (approx)
+**Prompt**: "don't roll the message with the icon. keep it static. make boxes edge a bit curved. boxes should be 60px high"
+
+**Action**:
+- Modified hover behavior so only icon rotates, tooltip stays static
+- Changed border-radius from 0px to 4px for subtle rounded corners
+- Reduced card height from 70px to 60px
+
+### 2025-12-12 18:15 CET (approx)
+**Prompt**: "greate update memory this is the first releasable version. git commit and push"
+
+**Milestone**: First releasable version (v1.0.0) completed with all core features:
+- Full settings functionality for adding topics and links
+- Polished UI with Dark Navy theme (#11224E)
+- Responsive topic cards (202px x 60px with 4px rounded corners)
+- Settings modal with screw icon and hover tooltip
+- Chrome extension manifest V3 ready
+- All components styled with Roboto and Bodoni Moda fonts
+- Open box logo integrated
+- Four initial topics with unique colors from both palettes
+
 ---
 
 ## Notes
