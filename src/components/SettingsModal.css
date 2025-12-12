@@ -1,0 +1,135 @@
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn var(--transition-fast);
+}
+
+.settings-modal__content {
+  background-color: var(--color-primary);
+  width: 90%;
+  max-width: 300px;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.settings-modal__title {
+  color: var(--color-white);
+  font-size: var(--font-size-large);
+  font-weight: 400;
+  margin: 0;
+}
+
+.settings-modal__close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.settings-modal__close:hover {
+  opacity: 0.7;
+}
+
+.settings-modal__body {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.settings-modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.settings-modal__option-btn {
+  padding: var(--spacing-md);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: opacity var(--transition-fast);
+}
+
+.settings-modal__option-btn:hover {
+  opacity: 0.9;
+}
+
+.settings-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.settings-modal__form h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  margin: 0;
+}
+
+.settings-modal__input,
+.settings-modal__select {
+  padding: var(--spacing-sm);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  color: var(--color-primary);
+}
+
+.settings-modal__form-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.settings-modal__btn-primary,
+.settings-modal__btn-secondary {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: opacity var(--transition-fast);
+}
+
+.settings-modal__btn-primary {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.settings-modal__btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+
+.settings-modal__btn-primary:hover,
+.settings-modal__btn-secondary:hover {
+  opacity: 0.8;
+}

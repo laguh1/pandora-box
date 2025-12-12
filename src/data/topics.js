@@ -2,8 +2,8 @@ export const topics = [
   {
     id: 'deutsch',
     name: 'Deutsch',
-    color: '#8B0000',
-    chromeColor: 'red',
+    color: '#F87B1B',      // Orange
+    chromeColor: 'orange',
     urls: [
       { id: 1, title: 'Deutsche Welle', url: 'https://www.dw.com' },
       { id: 2, title: 'Goethe Institut', url: 'https://www.goethe.de' },
@@ -15,7 +15,7 @@ export const topics = [
   {
     id: 'crochet',
     name: 'Crochet',
-    color: '#556B2F',
+    color: '#CBD99B',      // Sage Green
     chromeColor: 'green',
     urls: [
       { id: 1, title: 'Ravelry', url: 'https://www.ravelry.com' },
@@ -28,8 +28,8 @@ export const topics = [
   {
     id: 'movies',
     name: 'Movies',
-    color: '#654321',
-    chromeColor: 'orange',
+    color: '#EEEEEE',      // Light Grey
+    chromeColor: 'grey',
     urls: [
       { id: 1, title: 'IMDb', url: 'https://www.imdb.com' },
       { id: 2, title: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com' },
@@ -41,8 +41,8 @@ export const topics = [
   {
     id: 'social-media',
     name: 'Social Media',
-    color: '#48D1CC',
-    chromeColor: 'cyan',
+    color: '#F5AD18',      // Gold/Yellow
+    chromeColor: 'yellow',
     urls: [
       { id: 1, title: 'Twitter/X', url: 'https://twitter.com' },
       { id: 2, title: 'Instagram', url: 'https://www.instagram.com' },

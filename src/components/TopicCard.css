@@ -1,6 +1,6 @@
 .topic-card {
-  width: var(--card-size);
-  height: var(--card-size);
+  width: var(--card-width);
+  height: var(--card-height);
   border-radius: var(--border-radius-lg);
   color: var(--color-white);
   display: flex;
@@ -25,12 +25,12 @@
 
 .topic-card__title {
   font-size: var(--font-size-large);
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
 }
 
 .topic-card__count {
   font-size: var(--font-size-small);
   opacity: 0.9;
-  font-weight: 500;
+  font-weight: 400;
 }
