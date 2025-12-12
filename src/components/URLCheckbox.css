@@ -1,0 +1,42 @@
+.url-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.url-checkbox:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.url-checkbox__input {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.url-checkbox__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.url-checkbox__title {
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.url-checkbox__url {
+  font-size: var(--font-size-small);
+  color: var(--color-text-light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

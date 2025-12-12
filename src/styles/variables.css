@@ -1,0 +1,53 @@
+:root {
+  /* Primary Colors */
+  --color-primary: #800080;
+  --color-primary-dark: #660066;
+  --color-primary-light: #9933CC;
+
+  /* Topic Colors */
+  --color-deutsch: #8B0000;
+  --color-crochet: #556B2F;
+  --color-movies: #654321;
+  --color-social-media: #48D1CC;
+
+  /* Neutral Colors */
+  --color-background: #F5F5F5;
+  --color-white: #FFFFFF;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-border: #DDDDDD;
+
+  /* Typography */
+  --font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-base: 14px;
+  --font-size-large: 18px;
+  --font-size-small: 12px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* Layout */
+  --popup-width: 400px;
+  --popup-height: 600px;
+  --card-size: 180px;
+  --card-gap: 10px;
+}
