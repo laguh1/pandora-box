@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:customised": "VITE_BUILD_VARIANT=customised vite",
     "build": "vite build",
+    "build:customised": "VITE_BUILD_VARIANT=customised vite build",
+    "build:default": "vite build",
+    "build:both": "npm run build:default && npm run build:customised",
     "lint": "eslint .",
     "preview": "vite preview"
   },
