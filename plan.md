@@ -652,6 +652,28 @@ npm run build
 - `/src/components/TopicModal.css` - Updated `.topic-modal__icon-btn` styles
 
 #### Pending Improvements
+
+**Build Variants with Customized/Default Data**:
+- [ ] Create two separate data files: `customised.js` and `default.js`
+- [ ] Each file contains different starting webpages and names
+- [ ] Configure two separate builds that use different data files
+- [ ] Customised version: Pre-configured with user-specific topics/URLs
+- [ ] Default version: Generic starting topics/URLs for general use
+
+**URL Management Improvements**:
+- [ ] Allow users to edit/rename URL titles after adding them
+- [ ] Hide URL address from display (show only title)
+- [ ] Remove URL display under the link name in UI
+
+**Topic Modal UX Improvements**:
+- [ ] Remove "Select URLs to open" text instruction
+- [ ] Add checkbox in top section for Select All / Deselect All toggle
+- [ ] Replace "Select All" button with "Open" button
+- [ ] "Open" button opens only the currently selected URLs
+- [ ] Remove bottom button showing "Open X selected"
+- [ ] Cleaner, more intuitive URL selection interface
+
+**Other Improvements**:
 - [ ] Dark mode support
 - [ ] Custom topic icons (not just colors)
 - [ ] Drag-and-drop URL reordering
