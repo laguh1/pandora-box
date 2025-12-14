@@ -651,6 +651,39 @@ npm run build
 **Files Modified**:
 - `/src/components/TopicModal.css` - Updated `.topic-modal__icon-btn` styles
 
+#### Topic Modal UX Improvements (2025-12-14)
+**Feature**: Redesigned URL selection interface for better usability
+**Status**: ✅ Completed
+
+**Changes Made**:
+- ✅ Hidden URL address from display (show only title)
+- ✅ Removed "Select URLs to open" text instruction
+- ✅ Added Select All/Deselect All checkbox in header
+- ✅ Replaced "Select All" button with "Open" button in header
+- ✅ Removed bottom "Open X selected" button
+- ✅ Cleaner, more compact header layout
+
+**Files Modified**:
+- `/src/components/URLCheckbox.jsx` - Removed URL address display (line 37)
+- `/src/components/URLList.jsx` - Redesigned header with checkbox and Open button
+  - Removed title text
+  - Added checkbox for Select All/Deselect All
+  - Moved Open button to header
+  - Removed footer section
+- `/src/components/URLList.css` - Updated styles for new layout
+  - New `.url-list__select-all-label` for checkbox and text
+  - Updated `.url-list__open-button` for header placement
+  - Removed `.url-list__footer` styles
+- `/src/components/URLCheckbox.css` - Simplified content layout
+  - Changed content from column to row alignment
+  - Removed URL display styles
+
+**User Benefits**:
+- Cleaner, less cluttered interface
+- More intuitive checkbox for selecting all URLs
+- Quick access to Open button without scrolling
+- Focus on URL titles without distracting URLs
+
 #### Pending Improvements
 
 **Build Variants with Customized/Default Data**:
@@ -662,16 +695,6 @@ npm run build
 
 **URL Management Improvements**:
 - [ ] Allow users to edit/rename URL titles after adding them
-- [ ] Hide URL address from display (show only title)
-- [ ] Remove URL display under the link name in UI
-
-**Topic Modal UX Improvements**:
-- [ ] Remove "Select URLs to open" text instruction
-- [ ] Add checkbox in top section for Select All / Deselect All toggle
-- [ ] Replace "Select All" button with "Open" button
-- [ ] "Open" button opens only the currently selected URLs
-- [ ] Remove bottom button showing "Open X selected"
-- [ ] Cleaner, more intuitive URL selection interface
 
 **Other Improvements**:
 - [ ] Dark mode support

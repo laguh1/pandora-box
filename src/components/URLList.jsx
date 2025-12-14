@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import URLCheckbox from './URLCheckbox';
 import './URLList.css';
 
-function URLList({ urls, onOpenSelected, topicColor, topicName }) {
+function URLList({ urls, onOpenSelected, topicColor, topicName, onDeleteUrl }) {
   const [selectedUrls, setSelectedUrls] = useState(new Set());
 
   const handleCheckboxChange = (urlId, checked) => {
@@ -33,12 +33,25 @@ function URLList({ urls, onOpenSelected, topicColor, topicName }) {
   return (
     <div className="url-list">
       <div className="url-list__header">
-        <h3 className="url-list__title">Select URLs to Open</h3>
+        <label className="url-list__select-all-label">
+          <input
+            type="checkbox"
+            className="url-list__select-all-checkbox"
+            checked={selectedUrls.size === urls.length && urls.length > 0}
+            onChange={handleSelectAll}
+            style={{ accentColor: topicColor }}
+          />
+          <span className="url-list__select-all-text">
+            {selectedUrls.size === urls.length && urls.length > 0 ? 'Deselect All' : 'Select All'}
+          </span>
+        </label>
         <button
-          className="url-list__select-all"
-          onClick={handleSelectAll}
+          className="url-list__open-button"
+          onClick={handleOpenSelected}
+          disabled={selectedUrls.size === 0}
+          style={{ backgroundColor: topicColor }}
         >
-          {selectedUrls.size === urls.length ? 'Deselect All' : 'Select All'}
+          Open
         </button>
       </div>
 
@@ -50,19 +63,9 @@ function URLList({ urls, onOpenSelected, topicColor, topicName }) {
             checked={selectedUrls.has(url.id)}
             onChange={handleCheckboxChange}
             accentColor={topicColor}
+            onDelete={onDeleteUrl}
           />
         ))}
-      </div>
-
-      <div className="url-list__footer">
-        <button
-          className="url-list__open-button"
-          onClick={handleOpenSelected}
-          disabled={selectedUrls.size === 0}
-          style={{ backgroundColor: topicColor }}
-        >
-          Open {selectedUrls.size} Selected {selectedUrls.size === 1 ? 'URL' : 'URLs'}
-        </button>
       </div>
     </div>
   );
