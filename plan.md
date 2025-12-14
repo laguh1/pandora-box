@@ -684,14 +684,45 @@ npm run build
 - Quick access to Open button without scrolling
 - Focus on URL titles without distracting URLs
 
-#### Pending Improvements
+#### Build Variants with Customized/Default Data (2025-12-14)
+**Feature**: Support two build variants with different starting data
+**Status**: ✅ Completed
 
-**Build Variants with Customized/Default Data**:
-- [ ] Create two separate data files: `customised.js` and `default.js`
-- [ ] Each file contains different starting webpages and names
-- [ ] Configure two separate builds that use different data files
-- [ ] Customised version: Pre-configured with user-specific topics/URLs
-- [ ] Default version: Generic starting topics/URLs for general use
+**Implementation**:
+- ✅ Created two separate data files
+- ✅ Configured environment-based builds
+- ✅ Separate output directories for each variant
+
+**Files Created**:
+- `/src/data/customised.js` - Personal topics (Deutsch, Crochet, Movies, Social Media, Miscellaneous)
+- `/src/data/default.js` - Generic topics (Productivity, Development, News, Social Media, Miscellaneous)
+- `/BUILD_VARIANTS.md` - Complete guide for using build variants
+
+**Files Modified**:
+- `/vite.config.js` - Added support for VITE_BUILD_VARIANT environment variable
+  - Outputs to `dist/` for default build
+  - Outputs to `dist-customised/` for customised build
+- `/src/App.jsx` - Conditionally imports data based on build variant
+- `/package.json` - Added build scripts:
+  - `npm run build:default` - Build generic version
+  - `npm run build:customised` - Build personal version
+  - `npm run build:both` - Build both versions
+  - `npm run dev:customised` - Run customised version in dev mode
+
+**How to Use**:
+1. Edit `/src/data/customised.js` for your personal URLs
+2. Edit `/src/data/default.js` for generic distribution URLs
+3. Run `npm run build:customised` to build your version
+4. Run `npm run build:default` to build distribution version
+5. Each build outputs to its own directory
+
+**User Benefits**:
+- Easy to maintain two versions from single codebase
+- Simple file editing to change URLs
+- Clean separation of personal and public versions
+- Both versions can coexist without conflicts
+
+#### Pending Improvements
 
 **URL Management Improvements**:
 - [ ] Allow users to edit/rename URL titles after adding them
