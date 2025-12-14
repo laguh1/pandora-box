@@ -431,6 +431,226 @@ npm run build
 
 **Source**: https://colorhunt.co/palette/11224ef87b1bcbd99beeeeee
 
+### Session 2: Enhanced URL Management (2025-12-14)
+**Status**: Completed
+
+#### In-Topic URL Management
+**Feature**: Move URL add/delete functionality inside topic view
+**Status**: ✅ Completed
+
+**Implementation Details**:
+1. **Removed URL Management from Top-Level**:
+   - Removed "Add Link to Existing Topic" from Settings modal
+   - Settings modal now only handles adding new topics
+   - Screw icon remains for settings (adding topics only)
+
+2. **Enhanced Topic Modal**:
+   - Added ➕ button in topic modal header to add URLs
+   - Added 📌 button to quickly add the current page being viewed
+   - Added ✕ close button
+   - All URL management now inside each topic's view
+
+3. **URL Management UI**:
+   - Each URL has a 🗑️ delete button in select mode
+   - Add URL form appears within topic modal (separate mode)
+   - Form includes fields for title and URL
+   - Maintains topic color scheme throughout
+
+**Files Modified**:
+- `/src/App.jsx` - Added `handleDeleteUrl` and updated props
+- `/src/components/SettingsModal.jsx` - Removed add link functionality
+- `/src/components/TopicModal.jsx` - Added URL management modes and handlers
+- `/src/components/URLList.jsx` - Added delete functionality
+- `/src/components/URLCheckbox.jsx` - Added delete button UI
+- `/src/components/TopicModal.css` - Styled new UI elements
+
+#### Add Current Page to Topic
+**Feature**: Quick-add the currently active webpage to a topic
+**Status**: ✅ Completed
+
+**Implementation**:
+- Added 📌 "Add Current Page" button in topic modal header
+- Uses `chrome.tabs.query({ active: true, currentWindow: true })`
+- Automatically captures URL and page title
+- Uses existing "tabs" permission in manifest.json
+
+#### Clickable URL Titles (2025-12-14)
+**Feature**: Click URL titles to open in new tab
+**Status**: ✅ Completed
+
+**Implementation**:
+- URL titles are now clickable buttons
+- Opens URL in new tab using `chrome.tabs.create()`
+- Fallback to `window.open()` for development
+- Hover effect: changes to sage green color with underline
+- Prevents label click propagation
+
+**Files Modified**:
+- `/src/components/URLCheckbox.jsx` - Added `handleOpenUrl` function
+- `/src/components/URLCheckbox.css` - Styled clickable titles
+
+#### Topic Icons (2025-12-14)
+**Feature**: Display relevant icons next to topic names
+**Status**: ✅ Completed
+
+**Icons Added**:
+- 🇩🇪 Deutsch (German flag)
+- 🧶 Crochet (Yarn ball)
+- 🎬 Movies (Movie clapperboard)
+- 💬 Social Media (Speech bubble)
+- 📦 Miscellaneous (Package box)
+- 📁 Default for new topics (Folder)
+
+**Files Modified**:
+- `/src/data/topics.js` - Added icon property to each topic
+- `/src/components/TopicCard.jsx` - Display icon alongside name
+- `/src/components/TopicCard.css` - Styled icon display (20px font size)
+
+#### Card Dimension Update
+**Status**: ✅ Completed
+**Change**: Updated card height to 50px
+- Card size: 202px width x 50px height
+- Horizontal orientation maintained
+
+#### Consistent Theme Blue Backgrounds (2025-12-14)
+**Feature**: Apply dark navy blue background throughout
+**Status**: ✅ Completed
+
+**Changes**:
+- App background: #11224E (Dark Navy Blue)
+- Topic modal background: #11224E
+- Settings modal background: #11224E (already set)
+- URL list background: #11224E
+- All text updated to white (#FFFFFF) for contrast
+- Input fields: #1A3366 (lighter blue) background
+- Hover states: #1A3366 (lighter blue)
+- Secondary buttons: transparent with white border
+
+**Files Modified**:
+- `/src/components/TopicModal.css` - Updated backgrounds and text colors
+- `/src/components/URLList.css` - Updated backgrounds and text colors
+- `/src/components/URLCheckbox.css` - Updated text colors
+
+#### Topic Color Updates (2025-12-14)
+**Feature**: Update topic box colors from palette
+**Status**: ✅ Completed
+
+**Current Topic Colors**:
+- 🇩🇪 Deutsch: #E68369 (Coral Pink) - white text
+- 🧶 Crochet: #CBD99B (Sage Green) - dark text
+- 🎬 Movies: #9E1C60 (Dark Magenta) - white text
+- 💬 Social Media: #F5AD18 (Gold/Yellow) - dark text
+- 📦 Miscellaneous: #006989 (Deep Teal) - white text
+
+**New Topic Color Rotation**:
+1. #E68369 (Coral Pink)
+2. #CBD99B (Sage Green)
+3. #9E1C60 (Dark Magenta)
+4. #F5AD18 (Gold/Yellow)
+5. #006989 (Deep Teal)
+
+**Files Modified**:
+- `/src/data/topics.js` - Updated all topic colors
+  - Deutsch: #E68369 (Coral Pink)
+  - Movies: #9E1C60 (Dark Magenta)
+  - Miscellaneous: #006989 (Deep Teal)
+- `/src/components/TopicCard.jsx` - Updated dark text logic (only Crochet and Social Media use dark text)
+- `/src/App.jsx` - Updated available colors array
+
+**Important Notes**:
+- Topic boxes NEVER use the background blue (#11224E)
+- Each topic has its own distinct color from the palette
+- Background blue is only for app/modal backgrounds
+
+#### Purple Icon as Extension Default (2025-12-14)
+**Feature**: Use purple Pandora Box icon as default extension icon
+**Status**: ✅ Completed
+
+**Implementation**:
+- Converted openbox.png orange to purple (#92487A)
+- Created multiple sizes (16x16, 48x48, 128x128)
+- Replaced extension icons in `/public/` folder
+- Extension icon now displays purple Pandora Box in toolbar
+
+**Files Created**:
+- `/public/icon16.png` - 16x16 purple icon
+- `/public/icon48.png` - 48x48 purple icon
+- `/public/icon128.png` - 128x128 purple icon
+- `/openbox_purple.png` - Purple source image
+- `/convert_purple_icon.py` - Python script for color conversion and resizing
+
+**Technical Details**:
+- Used Pillow (PIL) and NumPy for color conversion
+- Converted orange (#F87B1B) to purple (#92487A)
+- LANCZOS resampling for high quality resizing
+- Icons match manifest.json configuration
+
+**Color Conversion Process**:
+- Identified orange pixels using RGB tolerance matching
+- Replaced with purple color (#92487A = RGB(146, 72, 122))
+- Preserved transparency (alpha channel)
+
+#### Fix "Add Current Page" Functionality (2025-12-14)
+**Feature**: Fix the 📌 button to correctly capture current browser tab
+**Status**: ✅ Completed
+
+**Problem**:
+- When clicking 📌 from extension popup, `currentWindow: true` returns the popup window (no tabs)
+- Need to get the actual browser tab user was viewing
+
+**Solution**:
+- Changed `chrome.tabs.query({ active: true, currentWindow: true })`
+- To `chrome.tabs.query({ active: true, lastFocusedWindow: true })`
+- Now correctly captures the browser tab behind the popup
+
+**Files Modified**:
+- `/src/components/TopicModal.jsx` - Updated `handleAddCurrentPage` function (line 43)
+
+#### Data Persistence with Chrome Storage (2025-12-14)
+**Feature**: Persist user changes across app restarts
+**Status**: ✅ Completed
+
+**Implementation**:
+- Uses `chrome.storage.local` API to save/load topics
+- Loads saved data on app initialization
+- Automatically saves whenever topics change (add/delete topic, add/delete URL)
+- Falls back to default topics if no saved data
+
+**How It Works**:
+1. **On App Start**: Loads topics from Chrome storage
+2. **On Any Change**: Automatically saves to Chrome storage
+3. **Data Saved**: All topics, URLs, colors, icons, names
+
+**What Persists**:
+- ✅ New topics created by users
+- ✅ URLs added to any topic
+- ✅ URLs deleted from topics
+- ✅ All topic properties (name, icon, color, etc.)
+
+**Files Modified**:
+- `/src/App.jsx` - Added two `useEffect` hooks for load/save
+  - Lines 15-30: Load data on mount
+  - Lines 33-45: Save data on topics change
+  - Added `isLoaded` state flag to prevent saving during initial load
+
+**Technical Details**:
+- Uses `chrome.storage.local.get(['topics'])` to load
+- Uses `chrome.storage.local.set({ topics })` to save
+- Async/await for all storage operations
+- Error handling with console logging
+
+#### UI Refinements (2025-12-14)
+**Feature**: Polish icon button appearance
+**Status**: ✅ Completed
+
+**Changes**:
+- Increased icon button font size from 16px to 20px
+- Ensured white color for ➕ and 📌 buttons
+- Consolidated duplicate CSS rules
+
+**Files Modified**:
+- `/src/components/TopicModal.css` - Updated `.topic-modal__icon-btn` styles
+
 #### Pending Improvements
 - [ ] Dark mode support
 - [ ] Custom topic icons (not just colors)
