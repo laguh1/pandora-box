@@ -4,12 +4,21 @@
   gap: var(--spacing-sm);
   padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
-  cursor: pointer;
   transition: background-color var(--transition-fast);
+  position: relative;
 }
 
 .url-checkbox:hover {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.url-checkbox__label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  flex: 1;
+  cursor: pointer;
+  min-width: 0;
 }
 
 .url-checkbox__input {
@@ -22,21 +31,50 @@
 .url-checkbox__content {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
   min-width: 0;
 }
 
 .url-checkbox__title {
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-white);
   font-size: var(--font-size-base);
-}
-
-.url-checkbox__url {
-  font-size: var(--font-size-small);
-  color: var(--color-text-light);
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.url-checkbox__title--clickable {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.url-checkbox__title--clickable:hover {
+  color: var(--color-text-light);
+  text-decoration: underline;
+}
+
+.url-checkbox__delete {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background-color var(--transition-fast);
+  background-color: transparent;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.url-checkbox__delete:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  opacity: 1;
 }
