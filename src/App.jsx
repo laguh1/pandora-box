@@ -123,7 +123,7 @@ function App() {
     <div className="app">
       <header className="app__header">
         <div className="app__header-left">
-          <img src="/openbox.svg" alt="Open Box" className="app__logo" />
+          <img src="/openbox_transparent.png" alt="Open Box" className="app__logo" />
           <h1 className="app__title">Pandora Box</h1>
         </div>
         <button

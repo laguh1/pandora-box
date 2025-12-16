@@ -7,11 +7,9 @@ export const topics = [
     color: '#E68369',      // Coral Pink
     chromeColor: 'orange',
     urls: [
-      { id: 1, title: 'Deutsche Welle', url: 'https://www.dw.com' },
-      { id: 2, title: 'Goethe Institut', url: 'https://www.goethe.de' },
-      { id: 3, title: 'Der Spiegel', url: 'https://www.spiegel.de' },
-      { id: 4, title: 'Duolingo', url: 'https://www.duolingo.com' },
-      { id: 5, title: 'dict.cc', url: 'https://www.dict.cc' }
+      { id: 1, title: 'Goethe', url: 'https://onlinekurse.goethe.de/' },
+      { id: 2, title: 'Allango', url: 'https://www.allango.net/dau/NP10060716300' },
+      { id: 3, title: 'Duo', url: 'https://www.duolingo.com/learn' }
     ]
   },
   {
@@ -35,11 +33,10 @@ export const topics = [
     color: '#9E1C60',      // Dark Magenta
     chromeColor: 'pink',
     urls: [
-      { id: 1, title: 'IMDb', url: 'https://www.imdb.com' },
-      { id: 2, title: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com' },
-      { id: 3, title: 'Letterboxd', url: 'https://letterboxd.com' },
-      { id: 4, title: 'The Movie Database', url: 'https://www.themoviedb.org' },
-      { id: 5, title: 'Metacritic', url: 'https://www.metacritic.com' }
+      { id: 1, title: 'Netflix', url: 'https://www.netflix.com/browse' },
+      { id: 2, title: 'Max', url: 'https://www.max.com' },
+      { id: 3, title: 'Filmin', url: 'https://www.filmin.pt' },
+      { id: 4, title: 'Prime', url: 'https://www.primevideo.com' }
     ]
   },
   {
@@ -49,11 +46,9 @@ export const topics = [
     color: '#F5AD18',      // Gold/Yellow
     chromeColor: 'yellow',
     urls: [
-      { id: 1, title: 'Twitter/X', url: 'https://twitter.com' },
+      { id: 1, title: 'Facebook', url: 'https://www.facebook.com' },
       { id: 2, title: 'Instagram', url: 'https://www.instagram.com' },
-      { id: 3, title: 'Facebook', url: 'https://www.facebook.com' },
-      { id: 4, title: 'LinkedIn', url: 'https://www.linkedin.com' },
-      { id: 5, title: 'Reddit', url: 'https://www.reddit.com' }
+      { id: 3, title: 'LinkedIn', url: 'https://www.linkedin.com' }
     ]
   },
   {
@@ -62,7 +57,11 @@ export const topics = [
     icon: '📦',
     color: '#006989',      // Deep Teal
     chromeColor: 'cyan',
-    urls: []
+    urls: [
+      { id: 1, title: 'Spotify', url: 'https://open.spotify.com' },
+      { id: 2, title: 'Outlook', url: 'https://outlook.office.com/mail/' },
+      { id: 3, title: 'Glovo', url: 'https://glovoapp.com' }
+    ]
   }
 ];
 

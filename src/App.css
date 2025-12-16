@@ -1,6 +1,6 @@
 .app {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--color-background);
@@ -8,12 +8,13 @@
 
 .app__header {
   background-color: var(--color-primary);
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-xs);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
 }
 
 .app__header-left {
@@ -21,12 +22,13 @@
   align-items: center;
   gap: var(--spacing-sm);
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .app__logo {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
   filter: brightness(0) invert(1);
 }
 
@@ -37,6 +39,7 @@
   font-weight: 400;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
 }
 
 .app__settings-btn {
@@ -87,12 +90,11 @@
 }
 
 .app__main {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-lg);
-  overflow: auto;
+  flex-shrink: 0;
 }
 
 .app__grid {
