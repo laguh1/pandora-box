@@ -3,17 +3,10 @@ import URLList from './URLList';
 import { openURLsInGroup } from '../utils/chromeAPI';
 import './TopicModal.css';
 
-function TopicModal({ topic, onClose }) {
-  const [mode, setMode] = useState('choose'); // 'choose' | 'select'
-
-  const handleOpenAll = async () => {
-    await openURLsInGroup(topic.urls, topic.name, topic.chromeColor);
-    onClose();
-  };
-
-  const handleSelectMode = () => {
-    setMode('select');
-  };
+function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl }) {
+  const [mode, setMode] = useState('main'); // 'main' | 'add-url'
+  const [newUrlTitle, setNewUrlTitle] = useState('');
+  const [newUrlAddress, setNewUrlAddress] = useState('');
 
   const handleOpenSelected = async (selectedUrls) => {
     await openURLsInGroup(selectedUrls, topic.name, topic.chromeColor);
@@ -26,45 +19,82 @@ function TopicModal({ topic, onClose }) {
     }
   };
 
+  const handleAddUrl = () => {
+    if (newUrlTitle.trim() && newUrlAddress.trim()) {
+      // Check if topic already has 10 URLs
+      if (topic.urls.length >= 10) {
+        alert('Maximum 10 links allowed per topic');
+        return;
+      }
+      onAddUrl(topic.id, newUrlTitle, newUrlAddress);
+      setNewUrlTitle('');
+      setNewUrlAddress('');
+      setMode('main');
+    }
+  };
+
+  const handleAddCurrentPage = async () => {
+    try {
+      // Check if topic already has 10 URLs
+      if (topic.urls.length >= 10) {
+        alert('Maximum 10 links allowed per topic');
+        return;
+      }
+      // Query for the active tab in the last focused window (not the popup window)
+      const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+      if (tab) {
+        onAddUrl(topic.id, tab.title, tab.url);
+        setMode('main');
+      }
+    } catch (error) {
+      console.error('Error getting current tab:', error);
+    }
+  };
+
   return (
     <div className="topic-modal" onClick={handleBackdropClick}>
       <div className="topic-modal__content">
-        {mode === 'choose' ? (
+        {mode === 'main' ? (
           <>
             <div className="topic-modal__header">
               <h2 className="topic-modal__title" style={{ color: topic.color }}>
                 {topic.name}
               </h2>
-              <button
-                className="topic-modal__close"
-                onClick={onClose}
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
+              <div className="topic-modal__header-actions">
+                <button
+                  className="topic-modal__icon-btn"
+                  onClick={() => setMode('add-url')}
+                  aria-label="Add URL"
+                  title="Add URL"
+                >
+                  ➕
+                </button>
+                <button
+                  className="topic-modal__icon-btn"
+                  onClick={handleAddCurrentPage}
+                  aria-label="Add Current Page"
+                  title="Add Current Page"
+                >
+                  📌
+                </button>
+                <button
+                  className="topic-modal__close"
+                  onClick={onClose}
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
 
             <div className="topic-modal__body">
-              <p className="topic-modal__description">
-                How would you like to open these {topic.urls.length} links?
-              </p>
-
-              <div className="topic-modal__actions">
-                <button
-                  className="topic-modal__button topic-modal__button--primary"
-                  style={{ backgroundColor: topic.color }}
-                  onClick={handleOpenAll}
-                >
-                  Open All in Group
-                </button>
-
-                <button
-                  className="topic-modal__button topic-modal__button--secondary"
-                  onClick={handleSelectMode}
-                >
-                  Select URLs
-                </button>
-              </div>
+              <URLList
+                urls={topic.urls}
+                onOpenSelected={handleOpenSelected}
+                topicColor={topic.color}
+                topicName={topic.name}
+                onDeleteUrl={onDeleteUrl}
+              />
             </div>
           </>
         ) : (
@@ -72,7 +102,7 @@ function TopicModal({ topic, onClose }) {
             <div className="topic-modal__header">
               <button
                 className="topic-modal__back"
-                onClick={() => setMode('choose')}
+                onClick={() => setMode('main')}
                 aria-label="Go back"
               >
                 ← Back
@@ -86,12 +116,40 @@ function TopicModal({ topic, onClose }) {
               </button>
             </div>
 
-            <URLList
-              urls={topic.urls}
-              onOpenSelected={handleOpenSelected}
-              topicColor={topic.color}
-              topicName={topic.name}
-            />
+            <div className="topic-modal__body">
+              <h3 className="topic-modal__form-title">Add URL to {topic.name}</h3>
+              <div className="topic-modal__form">
+                <input
+                  type="text"
+                  placeholder="Link title..."
+                  value={newUrlTitle}
+                  onChange={(e) => setNewUrlTitle(e.target.value)}
+                  className="topic-modal__input"
+                />
+                <input
+                  type="url"
+                  placeholder="https://..."
+                  value={newUrlAddress}
+                  onChange={(e) => setNewUrlAddress(e.target.value)}
+                  className="topic-modal__input"
+                />
+                <div className="topic-modal__form-actions">
+                  <button
+                    onClick={() => setMode('main')}
+                    className="topic-modal__button topic-modal__button--secondary"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleAddUrl}
+                    className="topic-modal__button topic-modal__button--primary"
+                    style={{ backgroundColor: topic.color }}
+                  >
+                    Add URL
+                  </button>
+                </div>
+              </div>
+            </div>
           </>
         )}
       </div>

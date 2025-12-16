@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Test View</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #11224E;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        h2 {
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        img {
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #CBD99B;
+            border-radius: 8px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Original PNG (openbox_blue.png)</h2>
+        <img src="openbox_blue.png" alt="Original PNG">
+    </div>
+
+    <div class="container">
+        <h2>New SVG Version (openbox_blue.svg)</h2>
+        <img src="public/openbox_blue.svg" alt="New SVG">
+    </div>
+</body>
+</html>

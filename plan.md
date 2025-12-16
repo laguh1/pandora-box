@@ -722,6 +722,105 @@ npm run build
 - Clean separation of personal and public versions
 - Both versions can coexist without conflicts
 
+#### Quick Access URLs on Topic Cards (2025-12-16)
+**Feature**: Display URLs directly on each topic card for instant access
+**Status**: ✅ Completed
+
+**Implementation Details**:
+- Show up to 4 URLs as clickable boxes inside the topic card
+- Display only the short title of each URL (truncate with ellipsis if needed)
+- Clicking any box opens the URL in a new tab
+- "More" button appears when topic has 5+ URLs
+- Maintains the existing click-to-modal functionality for the main card area
+- Card height increased to 80px to accommodate inner boxes
+- Compact design with adaptive box widths
+
+**Inner Box Styling**:
+- Unique dark contrasting colors per topic (e.g., Dark Red for Deutsch, Dark Forest Green for Crochet)
+- Font size: 10px for compact display
+- Padding: 6px horizontal, 6px vertical
+- Boxes adapt to content width with max constraints
+- Text truncation for long titles
+
+**Display Logic**:
+- **1-4 URLs**: Show all URLs as boxes
+- **5+ URLs**: Show first 2 URLs + "More" button
+- "More" button opens full topic modal with all URLs
+
+**User Benefits**:
+- Instant access to frequently used URLs (just hover extension and click)
+- Visual preview of topic contents without opening modal
+- Faster workflow for most-used links
+- No "Open All" redundancy - use select all + open in modal
+
+**Files Modified**:
+- `/src/components/TopicCard.jsx` - Added URL preview boxes with click handlers
+- `/src/components/TopicCard.css` - Styled inner URL boxes with contrasting colors
+- `/src/styles/variables.css` - Increased card height to 80px
+
+#### Modal UX Simplification (2025-12-16)
+**Feature**: Streamlined topic modal interface
+**Status**: ✅ Completed
+
+**Changes Made**:
+- Removed redundant "Open All in Group" button
+- Topic modal now shows URL list immediately with checkboxes
+- Users can select all links via top checkbox and click "Open" button
+- Maximum 10 links per topic enforced
+- Validation added when adding URLs (both manual and "Add Current Page")
+
+**Files Modified**:
+- `/src/components/TopicModal.jsx` - Removed "Open All" button, simplified modal modes
+
+#### Logo and Header Improvements (2025-12-16)
+**Feature**: Enhanced header branding
+**Status**: ✅ Completed
+
+**Changes Made**:
+- Replaced SVG logo with transparent PNG version (openbox_transparent.png)
+- Created Python script to remove blue background from openbox_blue.png
+- Increased logo size from 24px to 36px
+- Moved logo and title to left side of header
+- Reduced left padding to 4px for better alignment
+- Added white-space: nowrap to prevent title wrapping
+- Logo positioned close to left edge with minimal spacing
+
+**Files Modified**:
+- `/src/App.jsx` - Updated logo src to use transparent PNG
+- `/src/App.css` - Increased logo size, adjusted header alignment
+- `/public/openbox_transparent.png` - New transparent logo file
+- `/make_transparent.py` - Python script for background removal
+
+#### Customised Data Configuration (2025-12-16)
+**Feature**: Updated personal topic URLs
+**Status**: ✅ Completed
+
+**Topics Configured**:
+1. **🇩🇪 Deutsch** (3 URLs):
+   - Goethe: https://onlinekurse.goethe.de/
+   - Allango: https://www.allango.net/dau/NP10060716300
+   - Duo: https://www.duolingo.com/learn
+
+2. **🧶 Crochet** (5 URLs):
+   - Ravelry, Crochet Pattern Central, LoveCrafts, Yarnspirations, AllFreeCrochet
+
+3. **🎬 Movies** (4 URLs):
+   - Netflix: https://www.netflix.com/browse
+   - Max: https://www.max.com
+   - Filmin: https://www.filmin.pt
+   - Prime: https://www.primevideo.com
+
+4. **💬 Social Media** (3 URLs):
+   - Facebook, Instagram, LinkedIn
+
+5. **📦 Miscellaneous** (3 URLs):
+   - Spotify: https://open.spotify.com
+   - Outlook: https://outlook.office.com/mail/
+   - Glovo: https://glovoapp.com
+
+**Files Modified**:
+- `/src/data/customised.js` - Updated all topic URLs
+
 #### Pending Improvements
 
 **URL Management Improvements**:

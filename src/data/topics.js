@@ -2,7 +2,8 @@ export const topics = [
   {
     id: 'deutsch',
     name: 'Deutsch',
-    color: '#F87B1B',      // Orange
+    icon: '🇩🇪',
+    color: '#E68369',      // Coral Pink
     chromeColor: 'orange',
     urls: [
       { id: 1, title: 'Deutsche Welle', url: 'https://www.dw.com' },
@@ -15,6 +16,7 @@ export const topics = [
   {
     id: 'crochet',
     name: 'Crochet',
+    icon: '🧶',
     color: '#CBD99B',      // Sage Green
     chromeColor: 'green',
     urls: [
@@ -28,8 +30,9 @@ export const topics = [
   {
     id: 'movies',
     name: 'Movies',
-    color: '#EEEEEE',      // Light Grey
-    chromeColor: 'grey',
+    icon: '🎬',
+    color: '#9E1C60',      // Dark Magenta
+    chromeColor: 'pink',
     urls: [
       { id: 1, title: 'IMDb', url: 'https://www.imdb.com' },
       { id: 2, title: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com' },
@@ -41,6 +44,7 @@ export const topics = [
   {
     id: 'social-media',
     name: 'Social Media',
+    icon: '💬',
     color: '#F5AD18',      // Gold/Yellow
     chromeColor: 'yellow',
     urls: [
@@ -50,6 +54,14 @@ export const topics = [
       { id: 4, title: 'LinkedIn', url: 'https://www.linkedin.com' },
       { id: 5, title: 'Reddit', url: 'https://www.reddit.com' }
     ]
+  },
+  {
+    id: 'miscellaneous',
+    name: 'Miscellaneous',
+    icon: '📦',
+    color: '#006989',      // Deep Teal
+    chromeColor: 'cyan',
+    urls: []
   }
 ];
 
