@@ -4,8 +4,8 @@ export const topics = [
     id: 'productivity',
     name: 'Productivity',
     icon: '⚡',
-    color: '#E68369',      // Coral Pink
-    chromeColor: 'orange',
+    color: '#547792',      // Medium Blue
+    chromeColor: 'blue',
     urls: [
       { id: 1, title: 'Gmail', url: 'https://mail.google.com' },
       { id: 2, title: 'Google Calendar', url: 'https://calendar.google.com' },
@@ -18,8 +18,8 @@ export const topics = [
     id: 'development',
     name: 'Development',
     icon: '💻',
-    color: '#CBD99B',      // Sage Green
-    chromeColor: 'green',
+    color: '#94B4C1',      // Light Blue
+    chromeColor: 'cyan',
     urls: [
       { id: 1, title: 'GitHub', url: 'https://github.com' },
       { id: 2, title: 'Stack Overflow', url: 'https://stackoverflow.com' },
@@ -32,8 +32,8 @@ export const topics = [
     id: 'news',
     name: 'News',
     icon: '📰',
-    color: '#9E1C60',      // Dark Magenta
-    chromeColor: 'pink',
+    color: '#EAE0CF',      // Cream/Beige
+    chromeColor: 'grey',
     urls: [
       { id: 1, title: 'BBC News', url: 'https://www.bbc.com/news' },
       { id: 2, title: 'The Guardian', url: 'https://www.theguardian.com' },
@@ -46,8 +46,8 @@ export const topics = [
     id: 'social-media',
     name: 'Social Media',
     icon: '💬',
-    color: '#F5AD18',      // Gold/Yellow
-    chromeColor: 'yellow',
+    color: '#547792',      // Medium Blue
+    chromeColor: 'blue',
     urls: [
       { id: 1, title: 'Twitter/X', url: 'https://twitter.com' },
       { id: 2, title: 'Instagram', url: 'https://www.instagram.com' },
@@ -60,7 +60,7 @@ export const topics = [
     id: 'miscellaneous',
     name: 'Miscellaneous',
     icon: '📦',
-    color: '#006989',      // Deep Teal
+    color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: []
   }

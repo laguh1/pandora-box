@@ -1,7 +1,7 @@
 import React from 'react';
 import './URLCheckbox.css';
 
-function URLCheckbox({ url, checked, onChange, accentColor, onDelete }) {
+function URLCheckbox({ url, checked, onChange, accentColor, onDelete, onEdit }) {
   const handleOpenUrl = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -36,6 +36,16 @@ function URLCheckbox({ url, checked, onChange, accentColor, onDelete }) {
           </button>
         </div>
       </label>
+      {onEdit && (
+        <button
+          className="url-checkbox__edit"
+          onClick={() => onEdit(url)}
+          aria-label="Edit URL"
+          title="Edit URL"
+        >
+          ✏️
+        </button>
+      )}
       {onDelete && (
         <button
           className="url-checkbox__delete"

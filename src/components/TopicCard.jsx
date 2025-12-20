@@ -2,48 +2,48 @@ import React from 'react';
 import './TopicCard.css';
 
 function TopicCard({ topic, onClick }) {
-  // Use dark text for light colored cards
-  const isDarkText = topic.id === 'social-media' || topic.id === 'crochet';
+  // Use dark text for light colored cards (cream/beige)
+  const isDarkText = topic.id === 'movies' || topic.id === 'news';
 
-  // Get contrasting color for inner boxes - unique color per topic
+  // Get contrasting color for inner boxes based on card color
   const getInnerBoxStyles = () => {
     const colorMap = {
       'deutsch': {
-        backgroundColor: '#8B0000', // Dark Red
+        backgroundColor: '#213448', // Dark blue
         color: '#FFFFFF'
       },
       'crochet': {
-        backgroundColor: '#2D5016', // Dark Forest Green
+        backgroundColor: '#547792', // Medium blue
         color: '#FFFFFF'
       },
       'movies': {
-        backgroundColor: '#4A0E2A', // Deep Burgundy
+        backgroundColor: '#547792', // Medium blue for contrast on cream
         color: '#FFFFFF'
       },
       'social-media': {
-        backgroundColor: '#8B6914', // Dark Goldenrod
+        backgroundColor: '#213448', // Dark blue
         color: '#FFFFFF'
       },
       'miscellaneous': {
-        backgroundColor: '#003A4D', // Darker Teal
+        backgroundColor: '#547792', // Medium blue
         color: '#FFFFFF'
       },
       'productivity': {
-        backgroundColor: '#B34A2E', // Burnt Orange/Terra Cotta
+        backgroundColor: '#213448', // Dark blue
         color: '#FFFFFF'
       },
       'development': {
-        backgroundColor: '#3D5A2A', // Olive Drab
+        backgroundColor: '#547792', // Medium blue
         color: '#FFFFFF'
       },
       'news': {
-        backgroundColor: '#5A0D2E', // Deep Plum
+        backgroundColor: '#547792', // Medium blue for contrast on cream
         color: '#FFFFFF'
       }
     };
 
     return colorMap[topic.id] || {
-      backgroundColor: '#11224E',
+      backgroundColor: '#213448',
       color: '#FFFFFF'
     };
   };
@@ -78,7 +78,7 @@ function TopicCard({ topic, onClick }) {
       className="topic-card"
       style={{
         backgroundColor: topic.color,
-        color: isDarkText ? '#11224E' : '#FFFFFF'
+        color: isDarkText ? '#213448' : '#FFFFFF'
       }}
       onClick={() => onClick(topic)}
       aria-label={`Open ${topic.name} shortcuts`}
