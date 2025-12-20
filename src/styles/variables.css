@@ -1,21 +1,21 @@
 :root {
-  /* Primary Colors - Dark Navy Theme */
-  --color-primary: #11224E;
-  --color-primary-dark: #0D1A3D;
-  --color-primary-light: #1A3366;
+  /* Primary Colors - ColorHunt Palette */
+  --color-primary: #213448;
+  --color-primary-dark: #1a2938;
+  --color-primary-light: #2a4158;
 
-  /* Topic Colors - Unique Colors from Both Palettes */
-  --color-deutsch: #F87B1B;      /* Orange */
-  --color-crochet: #CBD99B;      /* Sage Green */
-  --color-movies: #EEEEEE;       /* Light Grey */
-  --color-social-media: #F5AD18; /* Gold/Yellow */
+  /* Topic Colors - Alternating from Palette */
+  --color-deutsch: #547792;      /* Medium Blue */
+  --color-crochet: #94B4C1;      /* Light Blue */
+  --color-movies: #EAE0CF;       /* Cream/Beige */
+  --color-social-media: #547792; /* Medium Blue */
 
   /* Neutral Colors */
-  --color-background: #11224E;   /* Dark Navy for all backgrounds */
+  --color-background: #213448;   /* Dark blue background */
   --color-white: #FFFFFF;
   --color-text: #FFFFFF;         /* White text on dark background */
-  --color-text-light: #CBD99B;   /* Sage green for secondary text */
-  --color-border: #1A3366;       /* Slightly lighter navy */
+  --color-text-light: #94B4C1;   /* Light blue for secondary text */
+  --color-border: #2a4158;       /* Slightly lighter blue */
 
   /* Typography */
   --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -50,6 +50,6 @@
   --popup-width: 222px;
   --popup-height: 500px;
   --card-width: 202px;
-  --card-height: 80px;
+  --card-height: 70px;
   --card-gap: 10px;
 }

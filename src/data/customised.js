@@ -4,8 +4,8 @@ export const topics = [
     id: 'deutsch',
     name: 'Deutsch',
     icon: '🇩🇪',
-    color: '#E68369',      // Coral Pink
-    chromeColor: 'orange',
+    color: '#547792',      // Medium Blue
+    chromeColor: 'blue',
     urls: [
       { id: 1, title: 'Goethe', url: 'https://onlinekurse.goethe.de/' },
       { id: 2, title: 'Allango', url: 'https://www.allango.net/dau/NP10060716300' },
@@ -16,8 +16,8 @@ export const topics = [
     id: 'crochet',
     name: 'Crochet',
     icon: '🧶',
-    color: '#CBD99B',      // Sage Green
-    chromeColor: 'green',
+    color: '#94B4C1',      // Light Blue
+    chromeColor: 'cyan',
     urls: [
       { id: 1, title: 'Ravelry', url: 'https://www.ravelry.com' },
       { id: 2, title: 'Crochet Pattern Central', url: 'https://www.crochetpatterncentral.com' },
@@ -30,8 +30,8 @@ export const topics = [
     id: 'movies',
     name: 'Movies',
     icon: '🎬',
-    color: '#9E1C60',      // Dark Magenta
-    chromeColor: 'pink',
+    color: '#EAE0CF',      // Cream/Beige
+    chromeColor: 'grey',
     urls: [
       { id: 1, title: 'Netflix', url: 'https://www.netflix.com/browse' },
       { id: 2, title: 'Max', url: 'https://www.max.com' },
@@ -43,8 +43,8 @@ export const topics = [
     id: 'social-media',
     name: 'Social Media',
     icon: '💬',
-    color: '#F5AD18',      // Gold/Yellow
-    chromeColor: 'yellow',
+    color: '#547792',      // Medium Blue
+    chromeColor: 'blue',
     urls: [
       { id: 1, title: 'Facebook', url: 'https://www.facebook.com' },
       { id: 2, title: 'Instagram', url: 'https://www.instagram.com' },
@@ -55,7 +55,7 @@ export const topics = [
     id: 'miscellaneous',
     name: 'Miscellaneous',
     icon: '📦',
-    color: '#006989',      // Deep Teal
+    color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: [
       { id: 1, title: 'Spotify', url: 'https://open.spotify.com' },

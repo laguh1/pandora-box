@@ -60,13 +60,11 @@ function App() {
   };
 
   const handleAddTopic = (name) => {
-    // Available colors from the palette
+    // Available colors from the ColorHunt palette
     const availableColors = [
-      { color: '#E68369', chromeColor: 'orange' },    // Coral Pink
-      { color: '#CBD99B', chromeColor: 'green' },     // Sage Green
-      { color: '#9E1C60', chromeColor: 'pink' },      // Dark Magenta
-      { color: '#F5AD18', chromeColor: 'yellow' },    // Gold/Yellow
-      { color: '#006989', chromeColor: 'cyan' }       // Deep Teal
+      { color: '#547792', chromeColor: 'blue' },      // Medium Blue
+      { color: '#94B4C1', chromeColor: 'cyan' },      // Light Blue
+      { color: '#EAE0CF', chromeColor: 'grey' }       // Cream/Beige
     ];
     const colorIndex = topics.length % availableColors.length;
     const selectedColor = availableColors[colorIndex];
@@ -119,6 +117,33 @@ function App() {
     }
   };
 
+  const handleEditUrl = (topicId, urlId, newTitle, newUrl) => {
+    setTopics(topics.map(topic => {
+      if (topic.id === topicId) {
+        return {
+          ...topic,
+          urls: topic.urls.map(url =>
+            url.id === urlId
+              ? { ...url, title: newTitle, url: newUrl }
+              : url
+          )
+        };
+      }
+      return topic;
+    }));
+    // Update selectedTopic to reflect the change
+    if (selectedTopic && selectedTopic.id === topicId) {
+      setSelectedTopic(prev => ({
+        ...prev,
+        urls: prev.urls.map(url =>
+          url.id === urlId
+            ? { ...url, title: newTitle, url: newUrl }
+            : url
+        )
+      }));
+    }
+  };
+
   return (
     <div className="app">
       <header className="app__header">
@@ -153,6 +178,7 @@ function App() {
           onClose={handleCloseModal}
           onAddUrl={handleAddLink}
           onDeleteUrl={handleDeleteUrl}
+          onEditUrl={handleEditUrl}
         />
       )}
 
