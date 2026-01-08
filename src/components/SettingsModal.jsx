@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './SettingsModal.css';
+import { palettes } from '../data/palettes';
 
-function SettingsModal({ topics, onClose, onAddTopic }) {
-  const [mode, setMode] = useState('main'); // 'main' | 'add-topic'
+function SettingsModal({ topics, onClose, onAddTopic, currentPalette, onPaletteChange }) {
+  const [mode, setMode] = useState('main'); // 'main' | 'add-topic' | 'palette'
   const [newTopicName, setNewTopicName] = useState('');
 
   const handleAddTopic = () => {
@@ -26,6 +27,12 @@ function SettingsModal({ topics, onClose, onAddTopic }) {
         <div className="settings-modal__body">
           {mode === 'main' && (
             <div className="settings-modal__options">
+              <button
+                className="settings-modal__option-btn"
+                onClick={() => setMode('palette')}
+              >
+                🎨 Change Theme
+              </button>
               <button
                 className="settings-modal__option-btn"
                 onClick={() => setMode('add-topic')}
@@ -53,6 +60,50 @@ function SettingsModal({ topics, onClose, onAddTopic }) {
                   Add Topic
                 </button>
               </div>
+            </div>
+          )}
+
+          {mode === 'palette' && (
+            <div className="settings-modal__palette-selector">
+              <h3>Choose Theme</h3>
+              <div className="palette-grid">
+                {palettes.map((palette) => (
+                  <button
+                    key={palette.id}
+                    className={`palette-option ${currentPalette === palette.id ? 'palette-option--active' : ''}`}
+                    onClick={() => {
+                      onPaletteChange(palette.id);
+                      setMode('main');
+                    }}
+                  >
+                    <div className="palette-preview">
+                      <div
+                        className="palette-preview__color"
+                        style={{ backgroundColor: palette.colors.accent1 }}
+                      />
+                      <div
+                        className="palette-preview__color"
+                        style={{ backgroundColor: palette.colors.accent2 }}
+                      />
+                      <div
+                        className="palette-preview__color"
+                        style={{ backgroundColor: palette.colors.accent3 }}
+                      />
+                    </div>
+                    <span className="palette-option__name">{palette.name}</span>
+                    {currentPalette === palette.id && (
+                      <span className="palette-option__check">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => setMode('main')}
+                className="settings-modal__btn-secondary"
+                style={{ marginTop: '16px' }}
+              >
+                Back
+              </button>
             </div>
           )}
 

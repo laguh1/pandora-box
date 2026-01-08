@@ -91,3 +91,19 @@
   width: fit-content;
   min-width: auto;
 }
+
+/* Drag and Drop Styles */
+.topic-card {
+  cursor: move;
+}
+
+.topic-card--dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+  cursor: grabbing;
+}
+
+.topic-card--drag-over {
+  border: 2px dashed var(--color-white);
+  transform: scale(1.02);
+}

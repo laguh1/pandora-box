@@ -5,6 +5,7 @@ import SettingsModal from './components/SettingsModal';
 // Import data based on build variant
 import customisedData from './data/customised';
 import defaultData from './data/default';
+import { getPalette, applyPalette, assignTopicColors } from './data/palettes';
 import './App.css';
 
 // Select the correct data file based on build variant
@@ -17,23 +18,42 @@ function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentPalette, setCurrentPalette] = useState('current');
+  const [draggedTopic, setDraggedTopic] = useState(null);
+  const [draggedOverTopic, setDraggedOverTopic] = useState(null);
 
-  // Load topics from Chrome storage on mount
+  // Load topics and palette from Chrome storage on mount
   useEffect(() => {
-    const loadTopics = async () => {
+    const loadData = async () => {
       try {
-        const result = await chrome.storage.local.get(['topics']);
+        const result = await chrome.storage.local.get(['topics', 'palette']);
+
+        // Load palette first and apply it
+        const paletteId = result.palette || 'current';
+        setCurrentPalette(paletteId);
+        const palette = getPalette(paletteId);
+        applyPalette(palette);
+
+        // Load topics and apply palette colors
         if (result.topics && result.topics.length > 0) {
-          setTopics(result.topics);
+          const topicsWithColors = assignTopicColors(result.topics, palette);
+          setTopics(topicsWithColors);
+        } else {
+          // Apply palette to default topics
+          const topicsWithColors = assignTopicColors(topicsData, palette);
+          setTopics(topicsWithColors);
         }
       } catch (error) {
-        console.error('Error loading topics from storage:', error);
+        console.error('Error loading from storage:', error);
+        // Apply default palette on error
+        const palette = getPalette('current');
+        applyPalette(palette);
       } finally {
         setIsLoaded(true);
       }
     };
 
-    loadTopics();
+    loadData();
   }, []);
 
   // Save topics to Chrome storage whenever they change
@@ -60,14 +80,16 @@ function App() {
   };
 
   const handleAddTopic = (name) => {
-    // Available colors from the ColorHunt palette
-    const availableColors = [
-      { color: '#547792', chromeColor: 'blue' },      // Medium Blue
-      { color: '#94B4C1', chromeColor: 'cyan' },      // Light Blue
-      { color: '#EAE0CF', chromeColor: 'grey' }       // Cream/Beige
+    const palette = getPalette(currentPalette);
+
+    // Determine which accent color to use (rotate through 3 colors)
+    const colorIndex = topics.length % 3;
+    const accentColors = [
+      { color: palette.colors.accent1, chromeColor: palette.chromeColors.accent1 },
+      { color: palette.colors.accent2, chromeColor: palette.chromeColors.accent2 },
+      { color: palette.colors.accent3, chromeColor: palette.chromeColors.accent3 }
     ];
-    const colorIndex = topics.length % availableColors.length;
-    const selectedColor = availableColors[colorIndex];
+    const selectedColor = accentColors[colorIndex];
 
     const newTopic = {
       id: name.toLowerCase().replace(/\s+/g, '-'),
@@ -79,6 +101,25 @@ function App() {
     };
 
     setTopics([...topics, newTopic]);
+  };
+
+  const handlePaletteChange = async (paletteId) => {
+    setCurrentPalette(paletteId);
+    const palette = getPalette(paletteId);
+
+    // Apply new palette
+    applyPalette(palette);
+
+    // Update topic colors
+    const updatedTopics = assignTopicColors(topics, palette);
+    setTopics(updatedTopics);
+
+    // Save palette to storage
+    try {
+      await chrome.storage.local.set({ palette: paletteId });
+    } catch (error) {
+      console.error('Error saving palette:', error);
+    }
   };
 
   const handleAddLink = (topicId, title, url) => {
@@ -144,6 +185,41 @@ function App() {
     }
   };
 
+  // Drag and Drop handlers
+  const handleDragStart = (e, topic) => {
+    setDraggedTopic(topic);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTopic(null);
+    setDraggedOverTopic(null);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e, targetTopic) => {
+    e.preventDefault();
+
+    if (!draggedTopic || draggedTopic.id === targetTopic.id) {
+      return;
+    }
+
+    const draggedIndex = topics.findIndex(t => t.id === draggedTopic.id);
+    const targetIndex = topics.findIndex(t => t.id === targetTopic.id);
+
+    const newTopics = [...topics];
+    newTopics.splice(draggedIndex, 1);
+    newTopics.splice(targetIndex, 0, draggedTopic);
+
+    setTopics(newTopics);
+    setDraggedTopic(null);
+    setDraggedOverTopic(null);
+  };
+
   return (
     <div className="app">
       <header className="app__header">
@@ -167,6 +243,11 @@ function App() {
               key={topic.id}
               topic={topic}
               onClick={handleTopicClick}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              isDragging={draggedTopic?.id === topic.id}
             />
           ))}
         </div>
@@ -187,6 +268,8 @@ function App() {
           topics={topics}
           onClose={() => setShowSettings(false)}
           onAddTopic={handleAddTopic}
+          currentPalette={currentPalette}
+          onPaletteChange={handlePaletteChange}
         />
       )}
     </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TopicCard.css';
 
-function TopicCard({ topic, onClick }) {
+function TopicCard({ topic, onClick, onDragStart, onDragEnd, onDragOver, onDrop, isDragging }) {
   // Use dark text for light colored cards (cream/beige)
   const isDarkText = topic.id === 'movies' || topic.id === 'news';
 
@@ -75,12 +75,17 @@ function TopicCard({ topic, onClick }) {
 
   return (
     <button
-      className="topic-card"
+      className={`topic-card ${isDragging ? 'topic-card--dragging' : ''}`}
       style={{
         backgroundColor: topic.color,
         color: isDarkText ? '#213448' : '#FFFFFF'
       }}
       onClick={() => onClick(topic)}
+      draggable="true"
+      onDragStart={(e) => onDragStart(e, topic)}
+      onDragEnd={onDragEnd}
+      onDragOver={onDragOver}
+      onDrop={(e) => onDrop(e, topic)}
       aria-label={`Open ${topic.name} shortcuts`}
     >
       <div className="topic-card__header">

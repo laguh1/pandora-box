@@ -9,9 +9,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md);
+  padding: 0 var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--color-border);
-  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .url-list__select-all-label {
@@ -37,7 +39,7 @@
 .url-list__items {
   flex: 1;
   overflow-y: auto;
-  padding: var(--spacing-sm);
+  padding: 0 var(--spacing-xs);
 }
 
 .url-list__open-button {

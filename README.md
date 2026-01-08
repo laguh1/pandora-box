@@ -5,11 +5,13 @@ A React-based Chrome extension that provides quick access to categorized webpage
 ## Features
 
 - **Topic Cards**: Organized shortcuts grouped by topics (Deutsch, Crochet, Movies, Social Media)
-- **Purple Theme**: Beautiful purple color scheme with topic-specific accent colors
+- **5 Theme Palettes**: Choose from Ocean Blue, Forest Green, Rose Garden, Vibrant Pink, or Minimal Grey
+- **Drag-and-Drop Reordering**: Easily reorganize topic cards by dragging them to your preferred position
 - **Two Opening Modes**:
   - Open All: Opens all URLs in a Chrome tab group
   - Select URLs: Choose specific URLs to open with checkboxes
 - **Chrome Tab Groups**: Automatically organizes opened tabs in color-coded groups
+- **Persistent Settings**: Your theme choice and card order are saved automatically
 
 ## Development
 
@@ -92,9 +94,22 @@ pandora-box/
 
 ## Customization
 
+### Changing Themes
+
+1. Click the settings icon (screw) in the top-right corner
+2. Select "🎨 Change Theme"
+3. Choose from 5 available color palettes
+4. Your selection is saved automatically
+
+See [CUSTOMIZATION_GUIDE.md](CUSTOMIZATION_GUIDE.md) for detailed information about themes and drag-and-drop.
+
+### Reordering Topic Cards
+
+Simply drag and drop topic cards to rearrange them. Your preferred order is saved automatically.
+
 ### Adding New Topics
 
-Edit `src/data/topics.js` to add new topics or modify URLs:
+Click the settings icon and select "+ Add New Topic", or edit `src/data/topics.js` to add new topics or modify URLs:
 
 ```javascript
 {
@@ -122,6 +137,8 @@ Modify CSS variables in `src/styles/variables.css` to change the theme colors.
 ## License
 
 MIT
+
+Authored by: laguh (Joana Socrates)
 
 ## Support
 
