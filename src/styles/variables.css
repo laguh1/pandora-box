@@ -47,9 +47,9 @@
   --transition-slow: 350ms ease-in-out;
 
   /* Layout */
-  --popup-width: 222px;
+  --popup-width: 280px;
   --popup-height: 500px;
-  --card-width: 202px;
+  --card-width: 260px;
   --card-height: 70px;
   --card-gap: 10px;
 }

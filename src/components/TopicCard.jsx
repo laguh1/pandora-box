@@ -2,50 +2,38 @@ import React, { useState } from 'react';
 import './TopicCard.css';
 
 function TopicCard({ topic, onClick, onDragStart, onDragEnd, onDragOver, onDrop, isDragging }) {
-  // Use dark text for light colored cards (cream/beige)
-  const isDarkText = topic.id === 'movies' || topic.id === 'news';
+  // Determine if the card background is light (needs dark text)
+  const isLightBackground = (color) => {
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 155;
+  };
+
+  const isDarkText = isLightBackground(topic.color);
 
   // Get contrasting color for inner boxes based on card color
+  // Use CSS variables from the palette for dynamic color changes
   const getInnerBoxStyles = () => {
-    const colorMap = {
-      'deutsch': {
-        backgroundColor: '#213448', // Dark blue
-        color: '#FFFFFF'
-      },
-      'crochet': {
-        backgroundColor: '#547792', // Medium blue
-        color: '#FFFFFF'
-      },
-      'movies': {
-        backgroundColor: '#547792', // Medium blue for contrast on cream
-        color: '#FFFFFF'
-      },
-      'social-media': {
-        backgroundColor: '#213448', // Dark blue
-        color: '#FFFFFF'
-      },
-      'miscellaneous': {
-        backgroundColor: '#547792', // Medium blue
-        color: '#FFFFFF'
-      },
-      'productivity': {
-        backgroundColor: '#213448', // Dark blue
-        color: '#FFFFFF'
-      },
-      'development': {
-        backgroundColor: '#547792', // Medium blue
-        color: '#FFFFFF'
-      },
-      'news': {
-        backgroundColor: '#547792', // Medium blue for contrast on cream
-        color: '#FFFFFF'
-      }
-    };
+    // Get CSS variable values
+    const primaryColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-primary').trim();
 
-    return colorMap[topic.id] || {
-      backgroundColor: '#213448',
-      color: '#FFFFFF'
-    };
+    // For light backgrounds, use the primary color (darker)
+    // For dark backgrounds, use a lighter shade
+    if (isDarkText) {
+      return {
+        backgroundColor: primaryColor,
+        color: '#FFFFFF'
+      };
+    } else {
+      return {
+        backgroundColor: 'rgba(0, 0, 0, 0.2)', // Semi-transparent dark overlay
+        color: '#FFFFFF'
+      };
+    }
   };
 
   const innerBoxStyles = getInnerBoxStyles();

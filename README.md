@@ -1,17 +1,36 @@
-# Pandora Box - Chrome Extension
+# Pandora Box 🎁
 
-A React-based Chrome extension that provides quick access to categorized webpage shortcuts through a popup interface.
+A beautiful, intuitive Chrome extension for organizing and accessing your favorite websites. Stop hunting through bookmarks and start enjoying instant access to all your important links, beautifully organized by topic with color-coded Chrome tab groups.
 
-## Features
+## ✨ Features
 
-- **Topic Cards**: Organized shortcuts grouped by topics (Deutsch, Crochet, Movies, Social Media)
-- **5 Theme Palettes**: Choose from Ocean Blue, Forest Green, Rose Garden, Vibrant Pink, or Minimal Grey
-- **Drag-and-Drop Reordering**: Easily reorganize topic cards by dragging them to your preferred position
-- **Two Opening Modes**:
-  - Open All: Opens all URLs in a Chrome tab group
-  - Select URLs: Choose specific URLs to open with checkboxes
-- **Chrome Tab Groups**: Automatically organizes opened tabs in color-coded groups
-- **Persistent Settings**: Your theme choice and card order are saved automatically
+- **🎯 Quick Access Cards**: View up to 4 most-used links directly on each topic card
+- **🎨 5 Beautiful Themes**: Ocean Blue, Forest Green, Rose Garden, Vibrant Pink, Minimal Grey
+- **📂 Smart Organization**: Group websites by topics (Work, Learning, Entertainment, etc.)
+- **🗂️ Chrome Tab Groups**: Open multiple links in organized, color-coded tab groups
+- **✏️ Full Customization**: Add, edit, delete links and topics - maximum 10 links per topic
+- **💾 Auto-Save**: All changes saved automatically to Chrome local storage
+- **🔄 Drag & Drop**: Reorder topics with simple drag and drop
+- **📌 Quick Pin**: Add current page to any topic with one click
+- **🎨 Dynamic Colors**: Link colors inside cards change with your theme
+- **📜 Auto-Scroll**: Popup scrolls automatically when you have many topics
+
+## 📖 Documentation
+
+- **[Chrome Store Description](CHROME_STORE_DESCRIPTION.md)** - Complete description for Chrome Web Store listing
+- **[User Instructions](USER_INSTRUCTIONS.md)** - Comprehensive user guide with screenshots
+- **[Customization Guide](CUSTOMIZATION_GUIDE.md)** - Theming and customization details
+- **[Technical Documentation](CLAUDE.md)** - Implementation plan and architecture
+
+## 🚀 Quick Start for Users
+
+1. Install the extension from Chrome Web Store (or load unpacked for development)
+2. Click the Pandora Box icon in your toolbar
+3. Click any link box to open that website
+4. Click a topic card to see all links
+5. Use the gear icon (⚙️) to customize themes and add topics
+
+**For detailed instructions**, see [USER_INSTRUCTIONS.md](USER_INSTRUCTIONS.md)
 
 ## Development
 
