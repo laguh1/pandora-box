@@ -1,4 +1,4 @@
-npm run build# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-customised
 dist-ssr
 *.local
 
