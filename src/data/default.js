@@ -9,9 +9,7 @@ export const topics = [
     urls: [
       { id: 1, title: 'Gmail', url: 'https://mail.google.com' },
       { id: 2, title: 'Google Calendar', url: 'https://calendar.google.com' },
-      { id: 3, title: 'Google Drive', url: 'https://drive.google.com' },
-      { id: 4, title: 'Notion', url: 'https://www.notion.so' },
-      { id: 5, title: 'Todoist', url: 'https://todoist.com' }
+      { id: 3, title: 'Google Drive', url: 'https://drive.google.com' }
     ]
   },
   {
@@ -49,8 +47,8 @@ export const topics = [
     color: '#547792',      // Medium Blue
     chromeColor: 'blue',
     urls: [
-      { id: 1, title: 'Twitter/X', url: 'https://twitter.com' },
-      { id: 2, title: 'Instagram', url: 'https://www.instagram.com' },
+      { id: 1, title: 'Instagram', url: 'https://www.instagram.com' },
+      { id: 2, title: 'Twitter/X', url: 'https://twitter.com' },
       { id: 3, title: 'Facebook', url: 'https://www.facebook.com' },
       { id: 4, title: 'LinkedIn', url: 'https://www.linkedin.com' },
       { id: 5, title: 'Reddit', url: 'https://www.reddit.com' }
@@ -62,7 +60,10 @@ export const topics = [
     icon: '📦',
     color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
-    urls: []
+    urls: [
+      { id: 1, title: 'YouTube', url: 'https://www.youtube.com' },
+      { id: 2, title: 'Spotify', url: 'https://www.spotify.com' }
+    ]
   }
 ];
 

@@ -38,9 +38,9 @@ function TopicCard({ topic, onClick, onDragStart, onDragEnd, onDragOver, onDrop,
 
   const innerBoxStyles = getInnerBoxStyles();
 
-  // Show all URLs if 4 or less, otherwise show 2 + "More" button
-  const hasMoreThanFour = topic.urls.length > 4;
-  const displayUrls = hasMoreThanFour ? topic.urls.slice(0, 2) : topic.urls.slice(0, 4);
+  // Show up to 3 links, and "..." button only if there are more than 3
+  const hasMoreThanThree = topic.urls.length > 3;
+  const displayUrls = topic.urls.slice(0, 3);
 
   // Handle URL click - open in new tab
   const handleUrlClick = (e, url) => {
@@ -96,14 +96,14 @@ function TopicCard({ topic, onClick, onDragStart, onDragEnd, onDragOver, onDrop,
               {url.title}
             </button>
           ))}
-          {hasMoreThanFour && (
+          {hasMoreThanThree && (
             <button
               className="topic-card__url-box topic-card__url-box--more"
               onClick={handleOthersClick}
               title="View all links"
               style={innerBoxStyles}
             >
-              More
+              ...
             </button>
           )}
         </div>
