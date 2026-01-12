@@ -179,7 +179,7 @@ Pandora Box does NOT collect, transmit, or sell any user data.
 We do not share any data with third parties.
 
 ## Contact
-For questions: [your-email@example.com]
+For questions: jojodantas@gmail.com
 ```
 
 Host this file and provide the URL in the Privacy Policy field.
