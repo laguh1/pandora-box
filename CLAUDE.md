@@ -381,3 +381,20 @@ npm run build
 - Tab organization improves workflow
 - Extension remains lightweight and fast
 - Intuitive UI requires no documentation
+
+---
+
+## Session Log
+
+### 2026-01-15: Chrome Web Store Resubmission
+- **Issue:** Extension rejected for showing real brand names in screenshots (Gmail, Facebook, Netflix, etc.)
+- **Solution:** Created brand-free distribution version
+- **Changes made:**
+  - Updated `src/data/default.js` to use generic prompts ("Add your email service", "Add your calendar", etc.)
+  - Created `src/data/screenshot-demo.js` for taking Chrome Web Store screenshots
+  - Built brand-free distribution in `dist/` folder
+- **Status:** Submitted to Chrome Web Store - awaiting review
+- **Files:**
+  - `ACTION_PLAN_RESUBMIT.md` - Step-by-step guide for fixing spam rejection
+  - `SCREENSHOT_SPAM_FIX.md` - Explanation of the issue and solution
+  - `SPAM_REMEDIATION_GUIDE.md` - Detailed remediation guide

@@ -26,3 +26,8 @@ dist-ssr
 
 # Claude Code
 SAS_TOOL_PLAN.md
+
+# Remediation docs (internal only)
+ACTION_PLAN_RESUBMIT.md
+SCREENSHOT_SPAM_FIX.md
+SPAM_REMEDIATION_GUIDE.md
