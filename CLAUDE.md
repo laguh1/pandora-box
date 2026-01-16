@@ -393,8 +393,66 @@ npm run build
   - Updated `src/data/default.js` to use generic prompts ("Add your email service", "Add your calendar", etc.)
   - Created `src/data/screenshot-demo.js` for taking Chrome Web Store screenshots
   - Built brand-free distribution in `dist/` folder
-- **Status:** Submitted to Chrome Web Store - awaiting review
+- **Status:** Rejected again with "Yellow Nickel" code
 - **Files:**
   - `ACTION_PLAN_RESUBMIT.md` - Step-by-step guide for fixing spam rejection
   - `SCREENSHOT_SPAM_FIX.md` - Explanation of the issue and solution
   - `SPAM_REMEDIATION_GUIDE.md` - Detailed remediation guide
+
+### 2026-01-16: Yellow Nickel Rejection Analysis & Fix
+- **Issue:** Extension rejected 3 times with "Yellow Nickel" spam policy code
+- **Root Causes Identified:**
+  1. **Test instructions contained brand names** - "Gmail", "Instagram" in test instructions contradicted brand-free screenshots
+  2. **Missing Chrome™ trademark notation** - Description referenced "Chrome" without ™ symbol
+  3. **Missing Google attribution** - No trademark attribution statement at end of description
+  4. **Extension name "Pandora"** - Potential trademark conflict with Pandora Media, Inc.
+  5. **Privacy policy issues** - Placeholder contact info, incorrect permission listed ("tabs" vs actual "tabGroups")
+
+- **Analysis Performed:**
+  - Reviewed Chrome Web Store branding guidelines: https://developer.chrome.com/docs/webstore/branding/
+  - Verified screenshot is compliant (uses generic names)
+  - Verified package code is compliant (no brand names in popup.js)
+  - Identified test instructions as primary issue
+
+- **Fixes Applied:**
+  1. Created `CHROME_STORE_SUBMISSION_CORRECTED.md` with all corrected materials:
+     - Short description with Chrome™
+     - Detailed description with Chrome™ and Google attribution
+     - Single purpose statement with Chrome™ and attribution
+     - Test instructions using generic names only
+     - Pre-submission checklist
+  2. Updated `PRIVACY_POLICY.md`:
+     - Removed incorrect "tabs" permission (changed to "tabGroups" only)
+     - Added GitHub contact URL
+     - Added repository URL
+     - Updated date
+
+- **Corrected Submission Materials Location:** `CHROME_STORE_SUBMISSION_CORRECTED.md`
+
+- **Recommended Actions:**
+  1. Wait 2-3 days before resubmitting
+  2. Use corrected test instructions (NO brand names)
+  3. Use corrected description with Chrome™ and attribution
+  4. Consider renaming extension if rejection persists (avoid "Pandora" trademark)
+  5. Push updated PRIVACY_POLICY.md to GitHub before resubmitting
+
+- **Status:** Corrected materials prepared, ready for resubmission
+
+---
+
+## Chrome Web Store Compliance Notes
+
+### Branding Requirements (per Google guidelines)
+- Use "Chrome™" when referencing Chrome (trademark symbol required)
+- Use phrases like "for Chrome™", "for use with Chrome™", or "compatible with Chrome™"
+- Include attribution: "Chrome is a trademark of Google LLC. Use of this trademark is subject to Google Permissions."
+
+### Content Requirements
+- NO brand names in screenshots (use generic placeholders)
+- NO brand names in test instructions
+- NO brand names in code defaults
+- Test instructions must match screenshot content
+
+### Trademark Considerations
+- "Pandora" may conflict with Pandora Media, Inc. trademark
+- Alternative names if needed: Link Box, Topic Cards, QuickLinks Hub, Tab Deck, CardMarks

@@ -1,6 +1,6 @@
 # Privacy Policy for Pandora Box
 
-**Last Updated:** January 12, 2026
+**Last Updated:** January 16, 2026
 
 ## Overview
 
@@ -52,8 +52,7 @@ We do **NOT**:
 
 Pandora Box requests the following Chrome permissions:
 
-- **tabs**: To create new browser tabs when you click on your bookmarked URLs
-- **tabGroups**: To organize opened tabs into colored groups
+- **tabGroups**: To create new browser tabs and organize them into colored groups
 - **storage**: To save your topics and preferences locally on your device
 
 These permissions are used solely for the extension's core functionality.
@@ -88,14 +87,13 @@ We may update this privacy policy from time to time. Any changes will be reflect
 
 ## Open Source
 
-Pandora Box is open source. You can review the source code to verify our privacy practices at: [Your GitHub Repository URL]
+Pandora Box is open source. You can review the source code to verify our privacy practices at: https://github.com/laguh1/pandora-box
 
 ## Contact Us
 
 If you have any questions or concerns about this privacy policy, please contact us at:
 
-**Email**: [Your Contact Email]
-**GitHub**: [Your GitHub Profile URL]
+**GitHub**: https://github.com/laguh1/pandora-box/issues
 
 ## Compliance
 
