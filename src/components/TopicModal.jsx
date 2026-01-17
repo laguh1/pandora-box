@@ -41,8 +41,9 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
         alert('Maximum 10 links allowed per topic');
         return;
       }
-      // Query for the active tab in the last focused window (not the popup window)
-      const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+      // Query for the active tab in a normal browser window (excludes popup windows)
+      const tabs = await chrome.tabs.query({ active: true, windowType: 'normal' });
+      const tab = tabs[0];
       if (tab) {
         onAddUrl(topic.id, tab.title, tab.url);
         setMode('main');
