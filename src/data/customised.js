@@ -21,8 +21,8 @@ export const topics = [
     urls: [
       { id: 1, title: 'Olga Poltava', url: 'https://www.youtube.com/@OlgaPoltava/videos' },
       { id: 2, title: 'LoveCrafts', url: 'https://www.lovecrafts.com' },
-      { id: 3, title: 'Stitches', url: 'https://hookfully.com/a-z-crochet-stitch-directory/ },
-      { id: 4, title: 'FiberSpider', url: 'https://www.youtube.com/@FiberSpider }
+      { id: 3, title: 'Stitches', url: 'https://hookfully.com/a-z-crochet-stitch-directory/' },
+      { id: 4, title: 'FiberSpider', url: 'https://www.youtube.com/@FiberSpider' }
     ]
   },
   {
@@ -34,7 +34,7 @@ export const topics = [
     urls: [
       { id: 1, title: 'Netflix', url: 'https://www.netflix.com/browse' },
       { id: 2, title: 'Max', url: 'https://www.max.com' },
-      { id: 3, title: 'Filmin', url: 'https://www.filmin.pt' },
+      { id: 3, title: 'Filmin', url: 'https://www.filmin.es' },
       { id: 4, title: 'Prime', url: 'https://www.primevideo.com' }
     ]
   },
@@ -63,17 +63,17 @@ export const topics = [
     ]
   },
   {
-      id: 'learning',
-      name: 'Learning',
-      icon: '🇩🇪',
-      color: '#EAE0CF',      // Cream/Beige
-      chromeColor: 'blue',
-      urls: [
-        { id: 1, title: 'Udacity', url: 'https://www.udacity.com/dashboard' },
-        { id: 2, title: 'LinkedIn', url: 'https://www.linkedin.com/learning/' },
-        { id: 3, title: 'Anthropic', url: 'https://www.anthropic.com/learn' }
-      ]
-    }
+    id: 'learning',
+    name: 'Learning',
+    icon: '📚',
+    color: '#EAE0CF',      // Cream/Beige
+    chromeColor: 'grey',
+    urls: [
+      { id: 1, title: 'Udacity', url: 'https://www.udacity.com/dashboard' },
+      { id: 2, title: 'LinkedIn', url: 'https://www.linkedin.com/learning/' },
+      { id: 3, title: 'Anthropic', url: 'https://www.anthropic.com/learn' }
+    ]
+  }
 ];
 
 export default topics;
