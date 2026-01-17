@@ -19,11 +19,10 @@ export const topics = [
     color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: [
-      { id: 1, title: 'Ravelry', url: 'https://www.ravelry.com' },
-      { id: 2, title: 'Crochet Pattern Central', url: 'https://www.crochetpatterncentral.com' },
-      { id: 3, title: 'LoveCrafts', url: 'https://www.lovecrafts.com' },
-      { id: 4, title: 'Yarnspirations', url: 'https://www.yarnspirations.com' },
-      { id: 5, title: 'AllFreeCrochet', url: 'https://www.allfreecrochet.com' }
+      { id: 1, title: 'Olga Poltava', url: 'https://www.youtube.com/@OlgaPoltava/videos' },
+      { id: 2, title: 'LoveCrafts', url: 'https://www.lovecrafts.com' },
+      { id: 3, title: 'Stitches', url: 'https://hookfully.com/a-z-crochet-stitch-directory/ },
+      { id: 4, title: 'FiberSpider', url: 'https://www.youtube.com/@FiberSpider }
     ]
   },
   {
@@ -58,11 +57,23 @@ export const topics = [
     color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: [
-      { id: 1, title: 'Spotify', url: 'https://open.spotify.com' },
+      { id: 1, title: 'Amazon', url: 'https://www.amazon.es/' },
       { id: 2, title: 'Outlook', url: 'https://outlook.office.com/mail/' },
       { id: 3, title: 'Glovo', url: 'https://glovoapp.com' }
     ]
-  }
+  },
+  {
+      id: 'learning',
+      name: 'Learning',
+      icon: '🇩🇪',
+      color: '#EAE0CF',      // Cream/Beige
+      chromeColor: 'blue',
+      urls: [
+        { id: 1, title: 'Udacity', url: 'https://www.udacity.com/dashboard' },
+        { id: 2, title: 'LinkedIn', url: 'https://www.linkedin.com/learning/' },
+        { id: 3, title: 'Anthropic', url: 'https://www.anthropic.com/learn' }
+      ]
+    }
 ];
 
 export default topics;
