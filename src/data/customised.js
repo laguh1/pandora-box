@@ -9,7 +9,10 @@ export const topics = [
     urls: [
       { id: 1, title: 'Goethe', url: 'https://onlinekurse.goethe.de/' },
       { id: 2, title: 'Allango', url: 'https://www.allango.net/dau/NP10060716300' },
-      { id: 3, title: 'Duo', url: 'https://www.duolingo.com/learn' }
+      { id: 3, title: 'Duo', url: 'https://www.duolingo.com/learn' },
+      { id: 4, title: 'Der Article', url: 'https://der-artikel.de/' },
+      { id: 5, title: 'Learn German', url: 'https://www.youtube.com/@LearnGermanOriginal' },
+      { id: 6, title: 'Translate', url: 'https://translate.google.com/?sl=de&tl=en&op=translate' }
     ]
   },
   {
