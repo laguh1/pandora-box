@@ -41,12 +41,26 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
         alert('Maximum 10 links allowed per topic');
         return;
       }
-      // Query for the active tab in a normal browser window (excludes popup windows)
-      const tabs = await chrome.tabs.query({ active: true, windowType: 'normal' });
-      const tab = tabs[0];
-      if (tab) {
+
+      // Query for the active tab in the last focused window
+      const tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+
+      // Filter out the extension popup itself
+      const tab = tabs.find(t => !t.url.startsWith('chrome-extension://'));
+
+      if (tab && tab.url && tab.title) {
         onAddUrl(topic.id, tab.title, tab.url);
         setMode('main');
+      } else {
+        // Fallback: try querying all tabs in the current window
+        const allTabs = await chrome.tabs.query({ currentWindow: true });
+        const validTab = allTabs.find(t => !t.url.startsWith('chrome-extension://') && t.active);
+        if (validTab) {
+          onAddUrl(topic.id, validTab.title, validTab.url);
+          setMode('main');
+        } else {
+          alert('Could not find the current page. Make sure you have a webpage open.');
+        }
       }
     } catch (error) {
       console.error('Error getting current tab:', error);

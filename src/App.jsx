@@ -123,13 +123,14 @@ function App() {
   };
 
   const handleAddLink = (topicId, title, url) => {
+    const newUrl = {
+      id: Date.now(), // Use timestamp for unique ID instead of length+1
+      title,
+      url
+    };
+
     setTopics(topics.map(topic => {
       if (topic.id === topicId) {
-        const newUrl = {
-          id: topic.urls.length + 1,
-          title,
-          url
-        };
         return {
           ...topic,
           urls: [...topic.urls, newUrl]
@@ -137,6 +138,14 @@ function App() {
       }
       return topic;
     }));
+
+    // Update selectedTopic to reflect the change (fixes pin button not showing new URL)
+    if (selectedTopic && selectedTopic.id === topicId) {
+      setSelectedTopic(prev => ({
+        ...prev,
+        urls: [...prev.urls, newUrl]
+      }));
+    }
   };
 
   const handleDeleteUrl = (urlId) => {

@@ -399,6 +399,23 @@ npm run build
   - `SCREENSHOT_SPAM_FIX.md` - Explanation of the issue and solution
   - `SPAM_REMEDIATION_GUIDE.md` - Detailed remediation guide
 
+### 2026-01-22: Pin Current Page Bug Fix
+- **Issue:** Clicking the 📌 pin button to add current page was not working - URL not saved
+- **Root Causes:**
+  1. **Missing `tabs` permission** in manifest.json - `chrome.tabs.query()` requires this permission but only `tabGroups` and `storage` were listed
+  2. **`selectedTopic` state not updating** in App.jsx - `handleAddLink` updated `topics` but not `selectedTopic`, so the modal didn't show the new URL
+  3. **Tab query using wrong filter** - `windowType: 'normal'` wasn't reliably finding the active tab
+- **Fixes Applied:**
+  1. Added `tabs` permission to `public/manifest.json`
+  2. Added `setSelectedTopic` update in `handleAddLink` function (App.jsx:125-140)
+  3. Changed tab query to use `lastFocusedWindow: true` with fallback
+  4. Changed URL ID generation from `topic.urls.length + 1` to `Date.now()` to prevent ID collisions
+- **Files Modified:**
+  - `public/manifest.json` - added "tabs" permission
+  - `src/App.jsx` - fixed handleAddLink to update selectedTopic
+  - `src/components/TopicModal.jsx` - improved tab query logic
+- **Status:** Fixed and tested working
+
 ### 2026-01-16: Yellow Nickel Rejection Analysis & Fix
 - **Issue:** Extension rejected 3 times with "Yellow Nickel" spam policy code
 - **Root Causes Identified:**
