@@ -1,6 +1,6 @@
 # Privacy Policy for Pandora Box
 
-**Last Updated:** January 16, 2026
+**Last Updated:** January 26, 2026
 
 ## Overview
 
@@ -52,7 +52,8 @@ We do **NOT**:
 
 Pandora Box requests the following Chrome permissions:
 
-- **tabGroups**: To create new browser tabs and organize them into colored groups
+- **tabs**: To query the current tab when using the "pin current page" feature, allowing you to quickly add the page you're viewing to a topic
+- **tabGroups**: To create and organize browser tabs into colored groups when opening multiple links
 - **storage**: To save your topics and preferences locally on your device
 
 These permissions are used solely for the extension's core functionality.

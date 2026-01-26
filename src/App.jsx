@@ -124,12 +124,13 @@ function App() {
 
   const handleAddLink = (topicId, title, url) => {
     const newUrl = {
-      id: Date.now(), // Use timestamp for unique ID instead of length+1
+      id: Date.now(),
       title,
       url
     };
 
-    setTopics(topics.map(topic => {
+    // Use functional update to avoid stale closure issues
+    setTopics(prevTopics => prevTopics.map(topic => {
       if (topic.id === topicId) {
         return {
           ...topic,
@@ -139,13 +140,16 @@ function App() {
       return topic;
     }));
 
-    // Update selectedTopic to reflect the change (fixes pin button not showing new URL)
-    if (selectedTopic && selectedTopic.id === topicId) {
-      setSelectedTopic(prev => ({
-        ...prev,
-        urls: [...prev.urls, newUrl]
-      }));
-    }
+    // Update selectedTopic so modal shows new URL immediately
+    setSelectedTopic(prev => {
+      if (prev && prev.id === topicId) {
+        return {
+          ...prev,
+          urls: [...prev.urls, newUrl]
+        };
+      }
+      return prev;
+    });
   };
 
   const handleDeleteUrl = (urlId) => {

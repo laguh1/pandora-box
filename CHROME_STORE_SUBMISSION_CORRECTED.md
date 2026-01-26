@@ -76,6 +76,7 @@ Storage
 Technical Specifications
 
 Permissions Used:
+- tabs: Required for "pin current page" feature to capture the current tab's URL
 - tabGroups: Required to create and label tab groups
 - storage: Required to save topics, links, and theme preferences locally
 
