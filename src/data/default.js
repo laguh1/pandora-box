@@ -8,9 +8,9 @@ export const topics = [
     color: '#547792',      // Medium Blue
     chromeColor: 'blue',
     urls: [
-      { id: 1, title: 'Add your email service', url: 'https://example.com' },
-      { id: 2, title: 'Add your calendar', url: 'https://example.com' },
-      { id: 3, title: 'Add your cloud storage', url: 'https://example.com' }
+      { id: 1, title: '(Edit me) Email service', url: 'https://example.com' },
+      { id: 2, title: '(Edit me) Calendar', url: 'https://example.com' },
+      { id: 3, title: '(Edit me) Cloud storage', url: 'https://example.com' }
     ]
   },
   {
@@ -20,9 +20,9 @@ export const topics = [
     color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: [
-      { id: 1, title: 'Add your code repository', url: 'https://example.com' },
-      { id: 2, title: 'Add your dev forum', url: 'https://example.com' },
-      { id: 3, title: 'Add your documentation site', url: 'https://example.com' }
+      { id: 1, title: '(Edit me) Code repository', url: 'https://example.com' },
+      { id: 2, title: '(Edit me) Dev forum', url: 'https://example.com' },
+      { id: 3, title: '(Edit me) Documentation', url: 'https://example.com' }
     ]
   },
   {
@@ -32,8 +32,8 @@ export const topics = [
     color: '#EAE0CF',      // Cream/Beige
     chromeColor: 'grey',
     urls: [
-      { id: 1, title: 'Add your news site', url: 'https://example.com' },
-      { id: 2, title: 'Add another news source', url: 'https://example.com' }
+      { id: 1, title: '(Edit me) News site', url: 'https://example.com' },
+      { id: 2, title: '(Edit me) News source', url: 'https://example.com' }
     ]
   },
   {
@@ -43,8 +43,8 @@ export const topics = [
     color: '#547792',      // Medium Blue
     chromeColor: 'blue',
     urls: [
-      { id: 1, title: 'Add your social network', url: 'https://example.com' },
-      { id: 2, title: 'Add another social site', url: 'https://example.com' }
+      { id: 1, title: '(Edit me) Social network', url: 'https://example.com' },
+      { id: 2, title: '(Edit me) Social site', url: 'https://example.com' }
     ]
   },
   {
@@ -54,8 +54,8 @@ export const topics = [
     color: '#94B4C1',      // Light Blue
     chromeColor: 'cyan',
     urls: [
-      { id: 1, title: 'Add your streaming service', url: 'https://example.com' },
-      { id: 2, title: 'Add your music platform', url: 'https://example.com' }
+      { id: 1, title: '(Edit me) Streaming service', url: 'https://example.com' },
+      { id: 2, title: '(Edit me) Music platform', url: 'https://example.com' }
     ]
   }
 ];

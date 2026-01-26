@@ -5,6 +5,13 @@ function URLCheckbox({ url, checked, onChange, accentColor, onDelete, onEdit }) 
   const handleOpenUrl = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    // Check if this is a placeholder link
+    if (url.url === 'https://example.com' || url.url.startsWith('https://example.com')) {
+      alert('This is a placeholder link.\n\nTo add your own links:\n• Click the ✏️ button to edit this link\n• Or click the 📌 button to pin the page you\'re currently viewing\n• Or click + to add a new link manually');
+      return;
+    }
+
     try {
       await chrome.tabs.create({ url: url.url, active: true });
     } catch (error) {
