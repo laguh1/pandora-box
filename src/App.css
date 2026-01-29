@@ -61,7 +61,7 @@
 }
 
 .app__settings-btn::after {
-  content: 'add';
+  content: 'Edit';
   position: absolute;
   right: 20px;
   top: 50%;

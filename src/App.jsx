@@ -79,7 +79,7 @@ function App() {
     setSelectedTopic(null);
   };
 
-  const handleAddTopic = (name) => {
+  const handleAddTopic = (name, icon = '📁') => {
     const palette = getPalette(currentPalette);
 
     // Determine which accent color to use (rotate through 3 colors)
@@ -92,15 +92,32 @@ function App() {
     const selectedColor = accentColors[colorIndex];
 
     const newTopic = {
-      id: name.toLowerCase().replace(/\s+/g, '-'),
+      id: name.toLowerCase().replace(/\s+/g, '-') + '-' + Date.now(),
       name: name,
-      icon: '📁',  // Default folder icon for new topics
+      icon: icon,
       color: selectedColor.color,
       chromeColor: selectedColor.chromeColor,
       urls: []
     };
 
     setTopics([...topics, newTopic]);
+  };
+
+  const handleEditTopic = (topicId, newName, newIcon) => {
+    setTopics(topics.map(topic => {
+      if (topic.id === topicId) {
+        return {
+          ...topic,
+          name: newName,
+          icon: newIcon
+        };
+      }
+      return topic;
+    }));
+  };
+
+  const handleDeleteTopic = (topicId) => {
+    setTopics(topics.filter(topic => topic.id !== topicId));
   };
 
   const handlePaletteChange = async (paletteId) => {
@@ -243,7 +260,7 @@ function App() {
         <button
           className="app__settings-btn"
           onClick={() => setShowSettings(true)}
-          aria-label="Settings"
+          aria-label="Edit"
         >
           <img src="/screw.svg" alt="Settings" className="app__settings-icon" />
         </button>
@@ -281,6 +298,8 @@ function App() {
           topics={topics}
           onClose={() => setShowSettings(false)}
           onAddTopic={handleAddTopic}
+          onEditTopic={handleEditTopic}
+          onDeleteTopic={handleDeleteTopic}
           currentPalette={currentPalette}
           onPaletteChange={handlePaletteChange}
         />

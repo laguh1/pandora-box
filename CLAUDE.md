@@ -386,6 +386,38 @@ npm run build
 
 ## Session Log
 
+### 2026-01-29: Chrome Web Store APPROVED
+- **Status:** APPROVED AND LIVE
+- **Issue Resolved:** Extension passed review after fixing Yellow Nickel spam policy violations
+- **Key Fixes That Worked:**
+  - Removed all brand names from test instructions
+  - Added Chrome™ trademark notation throughout descriptions
+  - Added Google attribution statement
+  - Updated privacy policy with correct permissions
+- **Result:** Extension is now published and available for users on the Chrome Web Store
+
+### 2026-01-29: Edit and Delete Topic Features (v1.1.0)
+- **New Features Added:**
+  - **Edit Topic** - Users can now edit topic names and icons
+  - **Delete Topic** - Users can now delete topics (with confirmation)
+  - **Icon Picker** - 18 emoji icons available when adding/editing topics
+- **UI Changes:**
+  - Settings menu now has 4 options: Change Theme, Add Topic, Edit Topic, Delete Topic
+  - Settings button hover tooltip changed from "add" to "Edit" (CSS fix)
+  - Topic selection list for edit/delete with visual feedback
+  - Delete confirmation dialog with warning message
+- **Version:** Updated to 1.1.0
+- **Files Modified:**
+  - `src/App.jsx` - Added `handleEditTopic` and `handleDeleteTopic` handlers
+  - `src/App.css` - Fixed tooltip text from "add" to "Edit"
+  - `src/components/SettingsModal.jsx` - Added edit-topic and delete-topic modes with topic selection UI
+  - `src/components/SettingsModal.css` - Added styles for topic list, icon grid, danger button, warning message
+  - `public/manifest.json` - Version bumped to 1.1.0
+  - `USER_INSTRUCTIONS.md` - Added instructions for edit/delete topic features
+- **Status:** Complete, tested, ready for Chrome Web Store update
+
+---
+
 ### 2026-01-15: Chrome Web Store Resubmission
 - **Issue:** Extension rejected for showing real brand names in screenshots (Gmail, Facebook, Netflix, etc.)
 - **Solution:** Created brand-free distribution version

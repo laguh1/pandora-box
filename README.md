@@ -1,5 +1,7 @@
 # Pandora Box 🎁
 
+**Now available on the Chrome Web Store!**
+
 A beautiful, intuitive Chrome extension for organizing and accessing your favorite websites. Stop hunting through bookmarks and start enjoying instant access to all your important links, beautifully organized by topic with color-coded Chrome tab groups.
 
 ## ✨ Features
@@ -24,7 +26,7 @@ A beautiful, intuitive Chrome extension for organizing and accessing your favori
 
 ## 🚀 Quick Start for Users
 
-1. Install the extension from Chrome Web Store (or load unpacked for development)
+1. Install the extension from the Chrome Web Store
 2. Click the Pandora Box icon in your toolbar
 3. Click any link box to open that website
 4. Click a topic card to see all links

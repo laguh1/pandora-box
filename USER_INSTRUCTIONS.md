@@ -98,7 +98,13 @@ Use the **"Select All"** checkbox at the top of the modal to quickly select or d
 
 ### Accessing Settings
 
-Click the **gear/screw icon (⚙️)** in the top-right corner of the popup.
+Click the **gear icon** in the top-right corner (hover shows "Edit").
+
+**Settings options:**
+- Change Theme
+- Add Topic
+- Edit Topic
+- Delete Topic
 
 ### Changing Color Themes
 
@@ -115,12 +121,28 @@ Click the **gear/screw icon (⚙️)** in the top-right corner of the popup.
 
 ### Adding New Topics
 
-1. Open Settings
-2. Click **"Add Topic"**
+1. Open Settings (gear icon)
+2. Click **"+ Add Topic"**
 3. Enter a topic name
-4. Click **"Add"**
-5. Your new topic appears at the bottom with a folder icon (📁)
-6. Start adding links to it!
+4. Select an icon from the grid
+5. Click **"Add Topic"**
+
+### Editing Topics
+
+1. Open Settings (gear icon)
+2. Click **"Edit Topic"**
+3. Select the topic to edit
+4. Change the name or icon
+5. Click **"Save Changes"**
+
+### Deleting Topics
+
+1. Open Settings (gear icon)
+2. Click **"Delete Topic"**
+3. Select the topic to delete
+4. Confirm deletion
+
+> **Warning**: Deleting a topic removes all links in it.
 
 ### Reordering Topics
 
@@ -245,7 +267,7 @@ Need help? Have suggestions?
 
 ---
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Last Updated**: January 2026
 
 Thank you for using Pandora Box! 🎁

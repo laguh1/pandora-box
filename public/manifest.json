@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pandora Box",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Topic-based link organizer with card interface. Shows 4 links per card, opens multiple URLs in Chrome tab groups.",
   "action": {
     "default_popup": "index.html",
