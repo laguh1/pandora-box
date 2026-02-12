@@ -90,7 +90,7 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
         {mode === 'main' ? (
           <>
             <div className="topic-modal__header">
-              <h2 className="topic-modal__title" style={{ color: topic.color }}>
+              <h2 className="topic-modal__title" style={{ color: topic.titleColor || topic.color }}>
                 {topic.name}
               </h2>
               <div className="topic-modal__header-actions">
@@ -125,6 +125,9 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
                 urls={topic.urls}
                 onOpenSelected={handleOpenSelected}
                 topicColor={topic.color}
+                topicTextColor={topic.textColor}
+                buttonBackground={topic.buttonBackground}
+                buttonText={topic.buttonText}
                 topicName={topic.name}
                 onDeleteUrl={onDeleteUrl}
                 onEditUrl={handleEditUrlClick}
@@ -177,7 +180,7 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
                   <button
                     onClick={handleAddUrl}
                     className="topic-modal__button topic-modal__button--primary"
-                    style={{ backgroundColor: topic.color }}
+                    style={{ backgroundColor: topic.buttonBackground || topic.color, color: topic.buttonText || topic.textColor }}
                   >
                     Add URL
                   </button>
@@ -231,7 +234,7 @@ function TopicModal({ topic, onClose, onAddUrl, onDeleteUrl, onEditUrl }) {
                   <button
                     onClick={handleSaveEdit}
                     className="topic-modal__button topic-modal__button--primary"
-                    style={{ backgroundColor: topic.color }}
+                    style={{ backgroundColor: topic.buttonBackground || topic.color, color: topic.buttonText || topic.textColor }}
                   >
                     Save Changes
                   </button>

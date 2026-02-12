@@ -1,19 +1,20 @@
 # Pandora Box - Corrected Chrome Web Store Submission Materials
 
-**Last Updated:** January 16, 2026
-**Version:** 1.0.0
-**Status:** Ready for resubmission
+**Last Updated:** February 12, 2026
+**Version:** 1.1.0
+**Status:** Ready for Chrome Web Store update
 
 ---
 
-## Issues Fixed in This Version
+## Changes in This Version (v1.1.0)
 
-| Issue | Fix Applied |
-|-------|-------------|
-| Missing Chrome™ trademark notation | Added ™ symbol throughout |
-| Missing Google attribution | Added attribution statement |
-| Test instructions with brand names | Replaced with generic names |
-| Typo "Porduction" | Fixed to "Production" |
+| Change | Details |
+|--------|---------|
+| Edit Topic | Users can rename topics and change topic icons |
+| Delete Topic | Users can delete topics with confirmation dialog |
+| Icon Picker | 18 emoji icons available when adding or editing topics |
+| Settings Menu | Now has 4 options: Change Theme, Add Topic, Edit Topic, Delete Topic |
+| Button Contrast Fix | Buttons now auto-detect text color for readability on light themes |
 
 ---
 
@@ -50,6 +51,12 @@ Topic Modal System
 - Delete unwanted links
 - Add current page with pin button
 - Add new links manually
+
+Topic Management
+- Edit topic names and icons via the settings menu
+- Delete topics with a confirmation step to prevent accidental removal
+- Choose from 18 emoji icons when adding or editing a topic
+- All changes are saved automatically to local storage
 
 Tab Groups Integration
 - Selected links open in a new tab group
@@ -115,9 +122,12 @@ Daily Usage:
 
 Customization:
 1. Click gear icon in top-right
-2. Add topics, change theme palette
-3. Drag cards to reorder
-4. Edit/delete links via modal
+2. Add new topics with custom names and emoji icons
+3. Edit existing topic names and icons
+4. Delete topics you no longer need (with confirmation)
+5. Change theme palette from 5 options
+6. Drag cards to reorder
+7. Edit/delete links via topic modal
 
 Differences from Bookmarks
 - Visual card interface instead of folder tree
@@ -149,58 +159,28 @@ Chrome is a trademark of Google LLC. Use of this trademark is subject to Google 
 ## 3. SINGLE PURPOSE DESCRIPTION
 
 ```
-Pandora Box provides a card-based interface for organizing website links by topic, designed for use with Chrome™. Unlike nested bookmark folders, each topic card displays 4 links directly in the popup for instant access. Topics with more links open in a modal where you can select multiple links to open simultaneously in tab groups. The extension includes 5 theme options that color-code cards and links.
+Pandora Box provides a card-based interface for organizing website links by topic, designed for use with Chrome™. Unlike nested bookmark folders, each topic card displays 4 links directly in the popup for instant access. Topics with more links open in a modal where you can select multiple links to open simultaneously in tab groups. Users can add, edit, and delete topics with custom emoji icons, and choose from 5 theme options that color-code cards and links.
 
 Chrome is a trademark of Google LLC.
 ```
 
 ---
 
-## 4. TEST INSTRUCTIONS
+## 4. TEST INSTRUCTIONS (500 characters max)
 
 ```
-TEST INSTRUCTIONS
-
-1. Click the Pandora Box extension icon in the toolbar to open the popup
-
-2. Test individual link opening:
-   - Click any link box (e.g., "Email Service", "Calendar App") to open that URL in a new tab
-
-3. Test viewing all links:
-   - Click the "..." button on any topic card to see the full list of URLs
-
-4. Test "Open All" feature:
-   - In the modal, click "Select All" then "Open" to open all URLs in a colored tab group
-
-5. Test selective opening:
-   - In the modal, check specific URLs using the checkboxes
-   - Click "Open" to open only selected URLs in a tab group
-
-6. Test theme switching:
-   - Click the settings gear icon (top-right)
-   - Click "Change Theme"
-   - Select a different theme (e.g., Forest Green, Rose Garden)
-   - Verify colors update throughout the interface
-
-7. Test adding a new topic:
-   - Click the settings gear icon
-   - Click "+ Add New Topic"
-   - Enter a topic name and save
-
-8. Test adding links:
-   - Open any topic modal
-   - Click the "+" button to add a new link
-   - Enter a title and URL, then save
-
-9. Test drag and drop:
-   - On the main popup, drag a topic card to reorder
-   - Close and reopen popup to verify order persists
-
-10. Test pin current page:
-    - Navigate to any website
-    - Open the extension and a topic modal
-    - Click the pin icon to add the current page to that topic
+1. Click extension icon to open popup
+2. Click any link on a card to open it
+3. Click topic card to open modal, select links, click "Open" for tab group
+4. Click gear icon > Add Topic to create a topic with emoji icon
+5. Click gear icon > Edit Topic to rename or change icon
+6. Click gear icon > Delete Topic to remove (confirms before deleting)
+7. Click gear icon > Change Theme to switch color palette
+8. In modal, click + to add links or pin icon to save current page
+9. Drag topic cards to reorder
 ```
+
+Character count: 489
 
 ---
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import URLCheckbox from './URLCheckbox';
 import './URLList.css';
 
-function URLList({ urls, onOpenSelected, topicColor, topicName, onDeleteUrl, onEditUrl }) {
+function URLList({ urls, onOpenSelected, topicColor, topicTextColor, buttonBackground, buttonText, topicName, onDeleteUrl, onEditUrl }) {
   const [selectedUrls, setSelectedUrls] = useState(new Set());
 
   const handleCheckboxChange = (urlId, checked) => {
@@ -49,7 +49,7 @@ function URLList({ urls, onOpenSelected, topicColor, topicName, onDeleteUrl, onE
           className="url-list__open-button"
           onClick={handleOpenSelected}
           disabled={selectedUrls.size === 0}
-          style={{ backgroundColor: topicColor }}
+          style={{ backgroundColor: buttonBackground || topicColor, color: buttonText || topicTextColor }}
         >
           Open
         </button>

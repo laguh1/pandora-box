@@ -416,6 +416,26 @@ npm run build
   - `USER_INSTRUCTIONS.md` - Added instructions for edit/delete topic features
 - **Status:** Complete, tested, ready for Chrome Web Store update
 
+### 2026-01-30: Button Contrast Fix for Light Themes
+- **Issue:** Buttons ("Save Changes", "Open", "Add URL") had unreadable white text on light accent backgrounds, especially in Minimal Grey theme
+- **Root Cause:** Button text color was hardcoded to white (`color: var(--color-white)`) while background colors came from palette accent colors, some of which are very light (#EEEEEE, #F7F7F7)
+- **Affected Themes:**
+  - Minimal Grey: accent2 (#EEEEEE) and accent3 (#F7F7F7) - most severe
+  - Forest Green: accent3 (#EBF4DD) - light cream-green
+  - Rose Garden: accent2 (#C8AAAA) and accent3 (#FFDAB3) - light rose/peach
+  - Vibrant Pink: accent3 (#FFEB55) - bright yellow
+  - Ocean Blue: accent3 (#EAE0CF) - cream/beige
+- **Fixes Applied:**
+  1. Added `getLuminance()` and `getContrastText()` functions in `src/data/palettes.js` to calculate WCAG-compliant text colors
+  2. Modified `assignTopicColors()` to include `textColor` property for each topic
+  3. Updated `URLList.jsx` to accept and use `topicTextColor` prop on "Open" button
+  4. Updated `TopicModal.jsx` to pass `textColor` and use it on "Add URL" and "Save Changes" buttons
+- **Files Modified:**
+  - `src/data/palettes.js` - Added contrast detection functions
+  - `src/components/URLList.jsx` - Added topicTextColor prop
+  - `src/components/TopicModal.jsx` - Pass and use textColor
+- **Status:** Fixed, rebuilt both dist and dist-customised
+
 ---
 
 ### 2026-01-15: Chrome Web Store Resubmission
