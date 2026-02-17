@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pandora Box Sticker - 5x7cm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      border: none;
+      text-decoration: none;
+    }
+
+    html, body {
+      width: 500px;
+      height: 700px;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(135deg, #5a2360 0%, #6b2c6b 50%, #4a1d50 100%);
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 36px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 390px;
+      gap: 12px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 67px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 1px;
+      text-align: center;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .tagline {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .qr-wrapper {
+      background: white;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .qr-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 14px;
+      align-self: center;
+    }
+
+    .badge span {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 10px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Pandora Box</h1>
+    <p class="tagline">Organize Your Web · Open Smarter</p>
+    <div class="qr-wrapper">
+      <img src="../assets/pandora-box-qr.png" alt="QR Code" />
+    </div>
+    <div class="badge">
+      <span>Chrome™ Extension</span>
+    </div>
+  </div>
+</body>
+</html>
