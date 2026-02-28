@@ -4,7 +4,7 @@
 export const palettes = [
   {
     id: 'current',
-    name: 'Ocean Blue (Current)',
+    name: 'Ocean Blue',
     colors: {
       background: '#213448',  // Dark blue background
       primary: '#213448',     // Header/primary elements
