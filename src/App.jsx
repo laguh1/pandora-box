@@ -21,12 +21,23 @@ function App() {
   const [currentPalette, setCurrentPalette] = useState('current');
   const [draggedTopic, setDraggedTopic] = useState(null);
   const [draggedOverTopic, setDraggedOverTopic] = useState(null);
+  const [showSafetyNotice, setShowSafetyNotice] = useState(false);
+
+  const handleDismissSafetyNotice = async () => {
+    setShowSafetyNotice(false);
+    try {
+      await chrome.storage.local.set({ safetyNoticeDismissed: true });
+    } catch (error) {
+      console.error('Error saving safety notice state:', error);
+    }
+  };
 
   // Load topics and palette from Chrome storage on mount
   useEffect(() => {
     const loadData = async () => {
       try {
-        const result = await chrome.storage.local.get(['topics', 'palette']);
+        const result = await chrome.storage.local.get(['topics', 'palette', 'safetyNoticeDismissed']);
+        if (!result.safetyNoticeDismissed) setShowSafetyNotice(true);
 
         // Load palette first and apply it
         const paletteId = result.palette || 'current';
@@ -265,6 +276,16 @@ function App() {
           <img src="/screw.svg" alt="Settings" className="app__settings-icon" />
         </button>
       </header>
+
+      {showSafetyNotice && (
+        <div className="app__safety-notice">
+          <span className="app__safety-icon">🔒</span>
+          <p className="app__safety-text">
+            <strong>Safe to use.</strong> Chrome's "not trusted" warning appears automatically for new independent extensions. Pandora Box stores data locally only and requests no personal data.
+          </p>
+          <button className="app__safety-dismiss" onClick={handleDismissSafetyNotice} aria-label="Dismiss">✕</button>
+        </div>
+      )}
 
       <main className="app__main">
         <div className="app__grid">

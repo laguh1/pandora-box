@@ -6,6 +6,53 @@
   background-color: var(--color-background);
 }
 
+.app__safety-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: rgba(104, 40, 104, 0.12);
+  border-bottom: 1px solid rgba(104, 40, 104, 0.25);
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.app__safety-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.app__safety-text {
+  font-size: 11.5px;
+  color: var(--color-text);
+  line-height: 1.45;
+  flex: 1;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.app__safety-text strong {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.app__safety-dismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--color-text);
+  opacity: 0.5;
+  padding: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.app__safety-dismiss:hover {
+  opacity: 1;
+}
+
 .app__header {
   background-color: var(--color-primary);
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-xs);
